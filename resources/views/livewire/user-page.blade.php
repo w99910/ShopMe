@@ -1,5 +1,5 @@
 <div class="flex flex-col h-full px-5 py-10 min-w-1/2">
-    <div class="flex justify-end items-center">  <input type="text" wire:model="search" placeholder="Search" class="border-b-2 border-gray-300 focus:outline-none"> <p>{{$search}}</p> </div>
+    <div class="flex justify-end items-center">  <input type="text" wire:model="search" placeholder="Search" class="border-b-2 border-gray-300 focus:outline-none"> </div>
 <table class="table-auto w-full relative h-full">
     <thead>
 
