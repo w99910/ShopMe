@@ -14,7 +14,6 @@ const mix = require('laravel-mix');
 const tailwindcss=require('tailwindcss');
 mix.copyDirectory('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
 mix.js('resources/js/app.js', 'public/js')
-
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/fontawesome.scss','public/css')
     .options({

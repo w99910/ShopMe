@@ -8,6 +8,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class Admin extends Middleware
 {
+    protected $guards=[];
     /**
      * Handle an incoming request.
      *
@@ -15,7 +16,7 @@ class Admin extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, ...$guards)
     {
         if(Auth::user()->role=='admin'){
         return $next($request);

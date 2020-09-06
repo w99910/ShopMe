@@ -29,47 +29,38 @@
             div#menu{
                 display: none;
             }
-            style="background-image: url('{{asset('images/admin-bg.jpg')}}')
+
         }
     </style>
+{{--    style="background-image: url('{{asset('images/admin-bg.jpg')}}')"--}}
 </head>
-<body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  style="background-image: url('{{asset('images/admin-bg.jpg')}}')">
+<body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  >
 @auth
-    <header class="bg-transparent lg:px-16 px-6 bg-transparent flex flex-wrap items-center lg:py-0 py-1  top-0 left-0 w-full" >
-        <div class="flex-1 flex justify-between items-center">
-            <a href="#">
-              
-            </a>
-        </div>
+    <div id="app" class="flex" x-data="{open1:true,open2:false,open3:false}">
+    <header class="flex flex-col bg-gray-300 h-screen justify-between items-center px-10 ">
+        <nav>
+            <ul>
+                <li class="flex items-center justify-start py-5 cursor-pointer " x-on:click="{open1 = true, open2 = false , open3=false}" ><i class="fas fa-home px-2"></i>Home</li>
+                <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="{open1 = false, open2 = true , open3=false}"><i class="fas fa-users px-2"></i>Users</li>
+                <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="{open1 = false, open2 = false , open3=true}"><i class="fas fa-th-list px-2"></i>Products</li>
 
-        <label for="menu-toggle" class="cursor-pointer lg:hidden block"><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
-        <input class="hidden" type="checkbox" id="menu-toggle" />
-
-        <div class="items-center lg:w-auto w-full sm:hidden md:hidden lg:flex" id="menu" >
-            <nav>
-                <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Features</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Pricing</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Documentation</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="#">Support</a></li>
-                </ul>
-            </nav>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
-                @csrf <button type="submit">Logout</button>
-            </form>
-
-        </div>
-
+            </ul>
+        </nav>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class=" flex items-center justify-start  pointer-cursor py-5">
+            @csrf<i class="fas fa-sign-out-alt pr-2"></i> <button type="submit" class="focus:outline-none">Logout</button>
+        </form>
     </header>
 @endauth
-<div id="app" class="h-full bg-transparent flex justify-center items-center">
+<div  class="h-screen bg-transparent flex justify-center items-center w-full">
 
-    <main class="h-full flex py-24 w-8/12 relative">
+
 
         @yield('content')
 
-    </main>
+
+
 </div>
+    </div>
 @livewireScripts
 </body>
 </html>

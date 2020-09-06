@@ -29,3 +29,11 @@ Route::post('/signin','UserController@signIn')->name('signin');
 Route::get('/signup','UserController@showSignUp')->name('signup');
 Route::post('/signup','UserController@create')->name('signup');
 
+Route::view('/sidebar','sidebar');
+Route::get('/hello',function(){
+    $users=\App\User::all();
+    foreach ($users as $user){
+        echo $user->name ."</br>";
+    }
+});
+

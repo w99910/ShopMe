@@ -50,7 +50,7 @@ if($validate){
        ]);
        if($validate){
            $user=User::firstOrCreate(['name'=>$request->name,'email'=>$request->email,'password'=>bcrypt($request->password)]);
-          Auth::login($user);
+           Auth::login($user);
           return redirect()->route('home');
        }
     }

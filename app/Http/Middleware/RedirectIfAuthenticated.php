@@ -18,10 +18,8 @@ class RedirectIfAuthenticated
      */
     public function handle(\Illuminate\Http\Request $request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-           return redirect(RouteServiceProvider::Admin);
-        }
-        elseif (Auth::guard($guard)->check()){
+
+       if (Auth::guard($guard)->check()){
             return redirect(RouteServiceProvider::HOME);
         }
 
