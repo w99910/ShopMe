@@ -75,12 +75,12 @@
 {{--    </div>--}}
 {{--</div>--}}
 <div class="grid grid-cols-2 w-full">
-    <div class="col-span-1 bg-secondary flex justify-center items-center rounded-bl-custom rounded-tl-custom">
+    <div class="col-span-1 bg-secondary flex justify-center items-center rounded-bl-custom rounded-tl-custom" id="png1">
         <img src="{{asset("images/profiling.png")}}" class="w-10/12 py-20" alt="authentication"/>
     </div>
 
-    <div class="col-span-1 bg-primary rounded-br-custom rounded-tr-custom flex justify-around items-center px-10 py-10 relative">
-        <div class=" py-10 bg-white rounded-lg relative ">
+    <div class="rounded-custom col-span-2 sm:col-span-1 bg-primary sm:rounded-br-custom sm:rounded-tr-custom sm:rounded-bl-none sm:rounded-tl-none flex justify-around items-center px-10 py-10 relative">
+        <div class=" px-4 py-10 bg-white rounded-lg relative shadow-xl ">
             @livewire('register')
 
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,26 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
 
+    public function editing(Request $request,$id){
+        $product=Product::find($id);
+
+        if($request[0] != null && $request[1] !=null){
+                     $product->name=$request[0];
+                     $product->price= floatval($request[1]);
+                     $product->save();
+                     return 'Product Successfully Edited';
+        } elseif($request[0] == null) {
+            $product->price= floatval($request[1]);
+            $product->save();
+            return 'Product Price Successfully Edited';
+        }
+        else{
+
+            $product->name=$request[0];
+            $product->save();
+            return 'Product Name Successfully Edited';
+        }
+    }
     public function index()
     {
        return view('auth.login');

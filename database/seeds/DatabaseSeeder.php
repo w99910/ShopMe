@@ -11,16 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
-        $product=\App\Product::all()->random();
-        $category=\App\Category::all()->random();
+        $this->call(ProductSeeder::class);
+
         // $this->call(UserSeeder::class);
         for($i=0;$i<20;$i++){
+            $product=\App\Product::all()->random();
+            $category=\App\Category::all()->random();
                             \Illuminate\Support\Facades\DB::table('product_category')->insert([
-                                 'product_id'=>$product,
-                                'category_id'=>$category,
-                                'created_at'=>now()->toDateTimeString(),
-                                'updated_at'=>now()->toDateTimeString(),
+                                 'product_id'=>$product->id,
+                                'category_id'=>$category->id,
+                                'created_at'=>now()->toDateString(),
+                                'updated_at'=>now()->toDateString(),
                             ])  ;
     }
     }

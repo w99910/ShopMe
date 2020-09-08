@@ -23,17 +23,21 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('/admin_home','AdminController@index')->name('admin_home');
+    Route::view('/page/user','page.user')->name('page.user');
+    Route::view('/page/product','page.product')->name('page.product');
 });
 Route::get('/signin','UserController@index')->name('signin');
 Route::post('/signin','UserController@signIn')->name('signin');
 Route::get('/signup','UserController@showSignUp')->name('signup');
 Route::post('/signup','UserController@create')->name('signup');
 
-Route::view('/sidebar','sidebar');
+
 Route::get('/hello',function(){
     $users=\App\User::all();
     foreach ($users as $user){
         echo $user->name ."</br>";
     }
 });
+
+ Route::post('page/testing/{id}','UserController@editing');
 

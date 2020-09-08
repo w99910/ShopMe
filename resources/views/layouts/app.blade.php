@@ -30,12 +30,16 @@
             div#menu{
                 display: none;
             }
+           div#png1{
+               display:none;
+           }
 
         }
     </style>
 </head>
 <body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
 @auth
+
     <header class="bg-white lg:px-16 px-6 bg-transparent flex flex-wrap items-center lg:py-0 py-1  top-0 left-0 w-full">
         <div class="flex-1 flex justify-between items-center">
             <a href="#">
@@ -65,7 +69,7 @@
 @endauth
     <div id="app" class="bg-background h-full flex justify-center items-center">
 @guest
-        <main class="h-full flex py-24 w-8/12 relative">
+        <main class="h-full flex py-24 w-8/12 relative items-center">
 
             @yield('content')
 
