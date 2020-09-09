@@ -19,25 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
+    <link href="{{asset('css/customcss/customcss.css')}}" rel="stylesheet">
     @livewireStyles
-    <style>
-        input#menu-toggle:checked ~ #menu {
-            display: block;
 
-        }
-        @media only screen and (max-width: 640px) {
-            div#menu{
-                display: none;
-            }
-
-        }
-        @keyframes opacity-trans{
-            0%{opacity:1;}
-            50%{opacity:0.5;}
-            100%{opacity:0;}
-
-        }
-    </style>
 {{--    style="background-image: url('{{asset('images/admin-bg.jpg')}}')"--}}
 </head>
 <body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  >
@@ -81,75 +65,8 @@
     <script src="https://cdn.jsdelivr.net/gh/livewire/alpine-plugin@v0.1.0/dist/livewire-alpine-plugin.js"></script>
 
     @stack('scripts')
-    <script type="text/javascript">
-        function mydata(){
-            return {
-                productid:1,
-                productname:'',
-                productprice:0,
-                image_path:'',
-                isShow:false,
-            };
 
-        }
-
-        async function f(i){
-
-
-
-            const  { value:ipAddress}=await Swal.fire({
-                title: `Editing Product Id ${i}`,
-                html:
-                    '<input id="swal-input1" class="swal2-input" type="text">' +
-                    '<input id="swal-input2" class="swal2-input" type="text">',
-                focusConfirm: false,
-                preConfirm: () => {
-                    return [
-                        document.getElementById('swal-input1').value,
-                        document.getElementById('swal-input2').value
-                    ]
-                } ,
-                showCancelButton: true,
-                inputValidator: (value) => {
-                    if (!value) {
-                        return 'You need to write something!'
-                    }
-                }
-
-            })
-            if(ipAddress[0]==''&&ipAddress[1]==''){
-                Swal.fire({
-                    icon: 'warning',
-                    text:"You must write something!!"});
-            }
-            else{
-
-                      const res=await axios.post(`testing/${i}`,ipAddress);
-                // Swal.fire(JSON.stringify(ipAddress));
-            const data=res.data;
-            if (data) {
-                Swal.fire({
-                    icon:"success",
-                    text:data});
-            }
-                window.livewire.emit('refreshing');
-                }
-
-        }
-
-        window.livewire.on('editform', postId =>  {
-             // document.getElementById('editformid').style.display='flex';
-        mydata();
-        this.productid=postId;
-        this.isShow= true;
-            f(postId);
-
-        });
-
-
-
-    </script>
-
+<script src="{{asset('js/customjs/customjs.js')}}" ></script>
 
 </body>
 </html>

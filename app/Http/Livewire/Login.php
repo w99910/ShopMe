@@ -11,7 +11,7 @@ class Login extends Component
 
   public function updated(){
       $this->validate([
-         'email' => 'email|required',
+         'email' => 'required',
           'password'=>'required'
       ]);
 

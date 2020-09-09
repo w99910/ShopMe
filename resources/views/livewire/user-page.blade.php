@@ -10,7 +10,7 @@
         {{session()->forget('message')}}
     @endif
     <div class="flex justify-end items-center">  <input type="text" wire:model="search" placeholder="Search" class="border-b-2 border-gray-300 focus:outline-none"> </div>
-<table class="table-auto w-full relative h-full mb-10">
+<table class="table-fixed w-full relative h-full mb-10">
     <thead>
 
         <tr>

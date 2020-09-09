@@ -1,0 +1,22 @@
+input#menu-toggle:checked ~ #menu {
+    display: block;
+
+}
+@media only screen and (max-width: 640px) {
+    div#menu{
+        display: none;
+    }
+
+}
+@keyframes opacity-trans{
+    0%{opacity:1;}
+    50%{opacity:0.5;}
+    100%{opacity:0;}
+
+}
+.swal2-header{
+    font-size: small;
+}
+#swal2-content{
+    font-size: medium;
+}

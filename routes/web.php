@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,11 @@ Route::get('/hello',function(){
 
  Route::post('page/testing/{id}','UserController@editing');
 
+Route::get('/publicimage',function(){
+    $url=Storage::url('product.Laptop.jpeg');    //"/storage/product.Laptop.jpeg"
+    dd($url);
+})  ;
+Route::get('/image',function(){
+    $url=Storage::url('product.Laptop.jpeg');
+    dd($url);
+})  ;
