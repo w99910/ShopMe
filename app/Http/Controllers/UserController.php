@@ -16,26 +16,6 @@ class UserController extends Controller
     public function export(){
         return Excel::download(new UsersExport(),'users.xlsx');
     }
-    public function editing(Request $request,$id){
-        $product=Product::find($id);
-
-        if($request[0] != null && $request[1] !=null){
-                     $product->name=$request[0];
-                     $product->price= floatval($request[1]);
-                     $product->save();
-                     return 'Product Successfully Edited';
-        } elseif($request[0] == null) {
-            $product->price= floatval($request[1]);
-            $product->save();
-            return 'Product Price Successfully Edited';
-        }
-        else{
-
-            $product->name=$request[0];
-            $product->save();
-            return 'Product Name Successfully Edited';
-        }
-    }
     public function index()
     {
        return view('auth.login');
@@ -79,35 +59,5 @@ if($validate){
            Auth::login($user);
           return redirect()->route('home');
        }
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
-    public function show($id)
-    {
-
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
     }
 }

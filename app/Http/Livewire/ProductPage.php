@@ -36,13 +36,16 @@ class ProductPage extends Component
          {
         $ex=explode(',', $data['image']);
         $decoded=base64_decode($ex[1]);
-
+        $quantity=$data['quantity'];
         $product=Product::create([
            'name'=>$data['name'],
-            'price'=>floatval($data['price']),
+            'price'=> (float)$data['price'],
             'image_path' => 'product.'.$data['name'].'.'.$data['extension'],
             'available' => true,
+            'quantity'=>$quantity,
         ]);
+        $cate_id=$data['select'];
+        $product->categories()->attach($cate_id);
         Storage::disk('public')->put('product.'.$product->name.'.'.$data['extension'],$decoded);
         $this->emit('alerting','Successfully Created');
         session()->flash('toast', 'Proudct '.$product->name.  ' successfully created.');

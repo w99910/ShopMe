@@ -26,7 +26,7 @@
         <th class="px-4 py-2">Price</th>
         <th class="px-4 py-2 ">Available</th>
         <th class="px-4 py-2">Image_Path</th>
-        <th class="px-4 py-2">Purchased_by_User</th>
+        <th class="px-4 py-2">Quantity</th>
         <th class="px-4 py-2"></th>
     </tr>
     </thead>
@@ -38,7 +38,8 @@
             <td class="border px-4 py-2">{{$product->price}}</td>
             <td class="border px-4 py-2">{!! $product->available?'<span class="text-green-300">Available</span>':'<span class="text-red-300" >Not Available</span>'!!}</td>
             <td class="border px-4 py-2">{{$product->image_path ?? ''}}</td>
-            <td class="border px-4 py-2">{{optional($product)->purchased_by_user}}</td>
+{{--            <td class="border px-4 py-2">{{optional($product)->purchased_by_user}}</td>--}}
+            <td class="border px-4 py-2">{{$product->quantity}}</td>
             <td class="border px-4 py-2 flex  justify-center text-white">
              <div class="flex items-center flex-col">
                  @if($product->id==$confirmid)

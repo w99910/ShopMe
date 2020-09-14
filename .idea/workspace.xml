@@ -20,37 +20,94 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="212ae468-a981-475e-8040-3d1939ad4d46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/e-commerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-commerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProductPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProductPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UserPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UserPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_02_175111_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_02_175111_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/customcss/customcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/customcss/customcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/customjs/customjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/custom_js/custom_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ProductSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProductSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/build/Flare.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/build/canvaskit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/build/canvaskit.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/build/example.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/custom_js/custom_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/custom_js/custom_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Actor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorArtboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorAxisConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorBasePath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorBone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorBoneBase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorCollider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorColliderCircle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorColliderLine.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorColliderPolygon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorColliderRectangle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorColliderTriangle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorDistanceConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorDrawable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorEllipse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorEvent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorIKConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorIKTarget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorImage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorJellyBone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorLayerNode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorLoader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorNode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorNodeSolo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorPath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorPolygon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorProceduralPath.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorRectangle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorRootBone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorRotationConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorScaleConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorShape.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorSkin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorSkinnable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorStar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorTargetNode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorTargetedConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorTransformConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorTranslationConstraint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ActorTriangle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/AnimatedComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/AnimatedProperty.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Animation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/AnimationInstance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Atlas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/BezierAnimationCurve.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/BlendMode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Block.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/ColorComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/CustomProperty.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Decompose.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/DirtyFlags.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Dispatcher.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/FillRule.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Flare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Graphics.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Interpolation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/JellyComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/KeyFrame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/NestedActorAsset.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/NestedActorNode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/PathMatrix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/PathPoint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Readers/BinaryReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Readers/JSONReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Readers/StreamReader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/Readers/dataURItoArrayBuffer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/StrokeCap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/StrokeJoin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/TransformSpace.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/source/TrimPath.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +374,7 @@
       <workItem from="1599967974965" duration="9216000" />
       <workItem from="1599981417006" duration="6503000" />
       <workItem from="1600012660104" duration="3265000" />
-      <workItem from="1600057125470" duration="10872000" />
+      <workItem from="1600057125470" duration="16239000" />
     </task>
     <servers />
   </component>
@@ -349,10 +406,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="416" y="204" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1366.728@0.0.1366.728" timestamp="1599306232952" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599578176166">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600078570586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1599578176166" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1600078570586" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1599904794231">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -369,10 +426,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="324" y="90" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1599102530772" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1599973577296">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1600078591738">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1599973577295" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1600078591738" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

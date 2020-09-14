@@ -20,6 +20,7 @@ $factory->define(Category::class, function (Faker $faker) {
         'Smart Watch',
         'Luxury Watch',
     ];
+
     $key=array_rand($category);
     return [
         'name' => $category[$key],

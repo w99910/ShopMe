@@ -42,7 +42,7 @@ Route::get('/hello',function(){
     }
 });
 
- Route::post('page/testing/{id}','UserController@editing');
+ Route::post('page/testing/{id}','ProductController@editing');
 
   Route::get('/export/user_excel',[\App\Http\Controllers\UserController::class,'export'])->name('user_export');
 Route::get('/export/product_excel',[\App\Http\Controllers\ProductController::class,'export'])->name('product_export');
@@ -68,3 +68,9 @@ Route::group(['prefix' => '2fa'],function() {
 Route::get('/test_middleware', function () {
     return view('auth.2fa_verify');
 })->middleware('2fa');
+Route::get('/array_test',function(){
+    $datas=['Shirts','Outerwear','Pants','Shoes'];
+    foreach ($datas as $data){
+        var_dump($data);
+    }
+});
