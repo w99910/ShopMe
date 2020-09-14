@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UsersExport;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
 
+    public function export(){
+        return Excel::download(new UsersExport(),'users.xlsx');
+    }
     public function editing(Request $request,$id){
         $product=Product::find($id);
 

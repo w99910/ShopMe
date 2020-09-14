@@ -11,6 +11,7 @@ module.exports = {
               primary: "#F5F5F5",
               background: "#4A4A58",
               semi: 'rgba(0, 0, 0, 0.75)',
+              womanbg:'#C58A8A',
           },
           inset:{
               '1/2': '50%',

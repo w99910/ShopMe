@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "alpinejs": "^2.6.0",
+        "alpinejs": "^2.7.0",
         "sweetalert2": "^9.17.2",
         "tailwindcss": "^1.7.6"
     }

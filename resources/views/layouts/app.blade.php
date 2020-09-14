@@ -75,6 +75,13 @@
 
         </main>
         @endguest
+@auth
+        <main class="h-full flex py-24 w-8/12 relative items-center">
+
+            @yield('2fa')
+
+        </main>
+    @endauth
     </div>
     @livewireScripts
 @include('sweetalert::alert')

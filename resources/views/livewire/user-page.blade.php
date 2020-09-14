@@ -10,7 +10,7 @@
         {{session()->forget('message')}}
     @endif
     <div class="flex justify-end items-center">  <input type="text" wire:model="search" placeholder="Search" class="border-b-2 border-gray-300 focus:outline-none"> </div>
-<table class="table-fixed w-full relative h-full mb-10">
+<table class="table-fixed w-full relative mb-10">
     <thead>
 
         <tr>
@@ -25,10 +25,10 @@
         @foreach($users as $user)
             <tr>
                 <td class="border px-4 py-2">{{$user->id}}</td>
-                <td class="border px-4 py-2">{{$user->name}}</td>
-                <td class="border px-4 py-2">{{$user->email}}</td>
+                <td class="border px-4 py-2 ">{{$user->name}}</td>
+                <td class="border px-4 py-2 truncate">{{$user->email}}</td>
                 <td class="border px-4 py-2">{{$user->role}}</td>
-                <td class="border px-4 py-2 flex items-center flex-col h-full">
+                <td class="border px-4 py-2 flex items-center flex-col ">
                     @if($user->id==$confirmid)
                         <p>Are You Sure?</p>
                         <div class="flex justify-center items-center">

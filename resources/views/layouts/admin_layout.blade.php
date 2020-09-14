@@ -26,13 +26,6 @@
 </head>
 <body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  >
 @auth
-{{--    <div class="mx-auto absolute  w-full h-screen inset-0 bg-semi justify-center items-center z-50" x-data="mydata()" id="editformid" x-show="isShow">--}}
-
-{{--        <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg p-8" @editform="console.log($event.detail.id)">--}}
-{{--            <button x-on:click=" isShow= !isShow " class="px-5 py-2 bg-gray-100" id="buttonshow">Close &times;</button>--}}
-{{--           <p></p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <div id="app" class="flex">
     <header class="flex flex-col bg-gray-300 h-screen justify-between items-center px-10 ">
         <nav class="flex flex-col mx-auto flex ">
@@ -62,11 +55,11 @@
 
     @include('sweetalert::alert')
 @livewireScripts
-    <script src="https://cdn.jsdelivr.net/gh/livewire/alpine-plugin@v0.1.0/dist/livewire-alpine-plugin.js"></script>
+
 
     @stack('scripts')
 
-<script src="{{asset('js/customjs/customjs.js')}}" ></script>
+<script src="{{asset('js/custom_js/custom_js.js')}}" ></script>
 
 </body>
 </html>

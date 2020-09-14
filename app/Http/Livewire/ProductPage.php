@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\ProductsExport;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithPagination;
-use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class ProductPage extends Component
@@ -19,13 +19,21 @@ class ProductPage extends Component
     public $count=0;
     public $confirmid;
     public $search='';
+    protected $listeners=['refreshing'=>'$refresh' ,'CreatingNewPost'=>'createPost'];
+
+    public function export(){
+//        return redirect()->route('product_export');
+
+     $this->redirectRoute('product_export');
+
+    }
+
     public function updatingSearch()
         {
         $this->resetPage();
         }
-        protected $listeners=['refreshing'=>'$refresh' ,'CreatingNewPost'=>'createPost'];
     public function createPost($data)
-    {
+         {
         $ex=explode(',', $data['image']);
         $decoded=base64_decode($ex[1]);
 
@@ -39,14 +47,16 @@ class ProductPage extends Component
         $this->emit('alerting','Successfully Created');
         session()->flash('toast', 'Proudct '.$product->name.  ' successfully created.');
 
-       }
+         }
     public function render()
         {
         return view('livewire.product-page',[
             'products' => Product::where('name', 'like', '%'.$this->search.'%')->paginate(7),
         ]);
         }
-    public function unconfirm($id){
+
+
+    public function unconfirmed($id){
                    $this->confirmid=null;
         }
 
@@ -62,8 +72,7 @@ class ProductPage extends Component
         }
 
 
-    public function mount(){
-        }
+
     public function paginationView()
         {
         return 'custom-pagination';

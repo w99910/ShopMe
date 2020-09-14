@@ -36,9 +36,6 @@ class UserPage extends Component
         return redirect()->back();
     }
 
-    public function mount(){
-
-    }
     public function paginationView()
     {
         return 'custom-pagination';

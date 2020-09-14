@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->double('price');
             $table->boolean('available');
             $table->string('image_path')->nullable();
+            $table->unsignedBigInteger('quantity')->default(1);
             $table->unsignedBigInteger('purchased_by_user')->nullable();
             $table->foreign('purchased_by_user')->references('id')->on('users');
             $table->timestamps();

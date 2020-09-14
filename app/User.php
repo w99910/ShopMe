@@ -42,4 +42,7 @@ class User extends Authenticatable
       return $user->role=="admin";
 //    dd($user->role,$user->role=="admin",(bool)$user->role=='admin');
     }
+    public function password_security(){
+        return $this->hasOne('App\PasswordSecurity');
+    }
 }

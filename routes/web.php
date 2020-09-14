@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +19,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('/image1',function(){
+   $url=Storage::url('product.gaming_room.png');
+   dd($url); //"/storage/product.gaming_room.png"
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('/admin_home','AdminController@index')->name('admin_home');
@@ -42,11 +44,27 @@ Route::get('/hello',function(){
 
  Route::post('page/testing/{id}','UserController@editing');
 
-Route::get('/publicimage',function(){
-    $url=Storage::url('product.Laptop.jpeg');    //"/storage/product.Laptop.jpeg"
-    dd($url);
-})  ;
-Route::get('/image',function(){
-    $url=Storage::url('product.Laptop.jpeg');
-    dd($url);
-})  ;
+  Route::get('/export/user_excel',[\App\Http\Controllers\UserController::class,'export'])->name('user_export');
+Route::get('/export/product_excel',[\App\Http\Controllers\ProductController::class,'export'])->name('product_export');
+              Route::get('/2factor',function(){
+                  $user=\App\User::find(1);
+                  $google2fa=new \PragmaRX\Google2FAQRCode\Google2FA();
+
+                  $secretKey = $google2fa->generateSecretKey();
+                 $inlineUrl=$google2fa->getQRCodeInline('name','zlintun001@gmail.com',$secretKey);
+              return view('auth.2fa')->with('image',$inlineUrl);
+              })  ;
+  Route::view('flare','flare');
+Route::group(['prefix' => '2fa'],function() {
+    Route::get('/', [\App\Http\Controllers\PasswordSecurityController::class,'index'])->name('show2fa');
+
+    Route::post('/enable2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'enable2fa'])->name('enable2fa');
+    Route::post('/disable2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'disable2fa'])->name('disable2fa');
+    Route::post('/generate2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'generate2fa'])->name('generate2faSecret');
+    Route::post('/2faVerify', function () {
+        return redirect(URL()->previous());
+    })->name('2faVerify')->middleware('2fa');
+});
+Route::get('/test_middleware', function () {
+    return view('auth.2fa_verify');
+})->middleware('2fa');

@@ -9,13 +9,15 @@ class Login extends Component
     public $email;
     public $password;
 
-  public function updated(){
+  public function updatedEmail(){
       $this->validate([
          'email' => 'required',
+      ]);
+  }
+  public function updatedPassword(){
+      $this->validate([
           'password'=>'required'
       ]);
-
-
   }
     public function render()
     {
