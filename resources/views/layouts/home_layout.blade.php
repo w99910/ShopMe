@@ -42,7 +42,7 @@
 <body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  >
 @auth
     <div id="app" class="flex">
-        <header class="flex flex-col bg-background h-screen justify-between items-center rounded-tr-custom text-white w-2/12  ">
+        <header class="flex flex-col bg-background h-screen justify-between items-center rounded-tr-custom text-white w-2/12" x-data="{isShow:false}">
             <div class="flex flex-col mx-8">
 
 
@@ -53,10 +53,12 @@
             <nav class="flex flex-col mx-auto flex mt-8 ">
 
                 <ul>
-                    <li ><a href="#"  class="flex items-center justify-start py-5 cursor-pointer"><img src="{{asset('images/new.png')}}" alt="image" class="w-2/12 h-auto  mr-3"/> Newest</a></li>
-                    <li ><a href="#"   class="flex items-center justify-start py-5 cursor-pointer" ><img src="{{asset('images/fire.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Best Sellers</a> </li>
-                    <li ><a href="#" class="flex items-center justify-start py-5 cursor-pointer" ><img src="{{asset('images/shopping-bag.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Your choice</a> </li>
-                    <li ><a href="#" class="flex items-center justify-start py-5 cursor-pointer" ><img src="{{asset('images/sale.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Discount</a> </li>
+                    <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('refresh')"><img src="{{asset('images/browser.png')}}" alt="image" class="w-2/12 h-auto  mr-3"/> Home</li>
+
+                    <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('new')"><img src="{{asset('images/new.png')}}" alt="image" class="w-2/12 h-auto  mr-3"/> Newest</li>
+                    <li class="flex items-center justify-start py-5 cursor-pointer"><img src="{{asset('images/fire.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Best Sellers </li>
+                    <li class="flex items-center justify-start py-5 cursor-pointer"><img src="{{asset('images/shopping-bag.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Your choice </li>
+                    <li class="flex items-center justify-start py-5 cursor-pointer"><img src="{{asset('images/sale.png')}}" alt="image" class="w-2/12 h-auto mr-3"/>Discount </li>
 
                 </ul>
             </nav>

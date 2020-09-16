@@ -24,11 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        cache()->forget('Products');
+
 //        $products=cache()->remember('Products',60*60,function(){
 //           return Product::all();
 //        });
-        $products=Product::all();
-        return view('home',compact('products'));
+
+        return view('home');
     }
 }
