@@ -17,6 +17,9 @@ class Home extends Component
     public function refresh(){
         return redirect()->route('home');
     }
+    public function purchase_page(Product $product){
+        return redirect('/purchase/'.$product->id);
+    }
     public function newest(){
 
         $products=Product::whereHas('categories',function(Builder $query){

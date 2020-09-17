@@ -22,18 +22,18 @@
         </div>
 
     </div>
-    <div class="container flex flex-wrap overflow-auto mx-auto border-t-2 border-gray-400 px-2" id="page">
+    <div class="container flex flex-wrap overflow-auto mx-auto border-t-2 border-gray-400 px-2" id="page" x-data>
 
         @foreach($products as $product)
-            <div class="bg-transparent h-64 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center mx-auto px-2  mt-4 mb-8 hover:bg-background rounded-t-lg">
+            <div class="bg-transparent h-64 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center mx-auto px-2  mt-4 mb-8 hover:bg-background rounded-t-lg" wire:click="purchase_page({{$product}})">
                 <img src="{{url('storage/'.$product->image_path)}}"  alt="{{$product->name}}" class="w-full h-auto inline object-cover object-center rounded-t-lg shadow-lg"
                 />
 
                 <div class="w-full justify-start bg-white p-2 rounded-b-lg shadow-md px-5">
                     <div class="flex">
-                        <table>
-                            <tr><td>Name</td><td>:{{$product->name}}</td></tr>
-                            <tr><td>Price</td><td>:{{$product->price}} $ </td></tr>
+                        <table class="table-auto">
+                            <tr><td>Name</td><td>: &nbsp; {{$product->name}}</td></tr>
+                            <tr><td>Price</td><td>: &nbsp;{{$product->price}} $ </td></tr>
                         </table>
                     </div>
             </div>
@@ -46,9 +46,9 @@
 
                     <div class="w-full justify-start bg-white p-2 rounded-b-lg shadow-md px-5">
                         <div class="flex">
-                            <table>
-                                <tr><td>Name</td><td>:{{$product->name}}</td></tr>
-                                <tr><td>Price</td><td>:{{$product->price}} $ </td></tr>
+                            <table class="table-auto">
+                                <tr><td>Name</td><td>: &nbsp;{{$product->name}}</td></tr>
+                                <tr><td>Price</td><td>: &nbsp;{{$product->price}} $ </td></tr>
                             </table>
                         </div>
                     </div>

@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if(Auth::check()){
+        return redirect()->route('home');
+    }
+    else {
+        return view('auth.login');
+    }
 });
 
 Auth::routes();
-Route::get('/image1',function(){
-   $url=Storage::url('product.gaming_room.png');
-   dd($url); //"/storage/product.gaming_room.png"
-});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('/admin_home','AdminController@index')->name('admin_home');
@@ -33,7 +34,7 @@ Route::get('/signin','UserController@index')->name('signin');
 Route::post('/signin','UserController@signIn')->name('signin');
 Route::get('/signup','UserController@showSignUp')->name('signup');
 Route::post('/signup','UserController@create')->name('signup');
-
+Route::get('/purchase/{product}',[\App\Http\Controllers\ProductController::class,'purchase']);
 
 Route::get('/hello',function(){
     $users=\App\User::all();
@@ -42,22 +43,20 @@ Route::get('/hello',function(){
     }
 });
 
- Route::post('page/testing/{id}','ProductController@editing');
-
-  Route::get('/export/user_excel',[\App\Http\Controllers\UserController::class,'export'])->name('user_export');
+Route::post('page/testing/{id}','ProductController@editing');
+Route::get('/export/user_excel',[\App\Http\Controllers\UserController::class,'export'])->name('user_export');
 Route::get('/export/product_excel',[\App\Http\Controllers\ProductController::class,'export'])->name('product_export');
-              Route::get('/2factor',function(){
-                  $user=\App\User::find(1);
-                  $google2fa=new \PragmaRX\Google2FAQRCode\Google2FA();
+Route::get('/2factor',function()
+    {
+        $user=\App\User::find(1);
+        $google2fa=new \PragmaRX\Google2FAQRCode\Google2FA();
+        $secretKey = $google2fa->generateSecretKey();
+        $inlineUrl=$google2fa->getQRCodeInline('name','zlintun001@gmail.com',$secretKey);
+        return view('auth.2fa')->with('image',$inlineUrl);
+    });
 
-                  $secretKey = $google2fa->generateSecretKey();
-                 $inlineUrl=$google2fa->getQRCodeInline('name','zlintun001@gmail.com',$secretKey);
-              return view('auth.2fa')->with('image',$inlineUrl);
-              })  ;
-  Route::view('flare','flare');
 Route::group(['prefix' => '2fa'],function() {
     Route::get('/', [\App\Http\Controllers\PasswordSecurityController::class,'index'])->name('show2fa');
-
     Route::post('/enable2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'enable2fa'])->name('enable2fa');
     Route::post('/disable2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'disable2fa'])->name('disable2fa');
     Route::post('/generate2fa', [\App\Http\Controllers\PasswordSecurityController::class, 'generate2fa'])->name('generate2faSecret');
@@ -65,12 +64,7 @@ Route::group(['prefix' => '2fa'],function() {
         return redirect(URL()->previous());
     })->name('2faVerify')->middleware('2fa');
 });
+
 Route::get('/test_middleware', function () {
     return view('auth.2fa_verify');
 })->middleware('2fa');
-Route::get('/array_test',function(){
-    $datas=['Shirts','Outerwear','Pants','Shoes'];
-    foreach ($datas as $data){
-        var_dump($data);
-    }
-});

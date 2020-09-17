@@ -44,3 +44,16 @@ div#page::-webkit-scrollbar-thumb{
 div#page::-webkit-scrollbar-thumb:hover{
     background: linear-gradient(transparent,#00c6ff);
 }
+div#cart::-webkit-scrollbar{
+
+    width:10px;
+    height: 5px;
+}
+div#cart::-webkit-scrollbar-thumb{
+    border-radius: 6px;
+    max-height: 2px;
+    background: linear-gradient(transparent,#4A4A58);
+}
+div#cart::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(transparent,#00c6ff);
+}

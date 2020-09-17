@@ -34,4 +34,9 @@ class ProductController extends Controller
             return 'Product Name Successfully Edited';
         }
     }
+    public function purchase($id){
+       $product=Product::find($id);
+return view('purchase',compact('product'));
+    }
+
 }
