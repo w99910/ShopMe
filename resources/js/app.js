@@ -6,7 +6,6 @@
 import 'alpinejs';
 require('./bootstrap');
 
-
 window.Vue = require('vue');
 import swal from 'sweetalert2';
 window.Swal = swal;

@@ -16,13 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if(Auth::check()){
-        return redirect()->route('home');
+        return redirect('/home');
     }
     else {
         return view('auth.login');
     }
 });
-
+Route::get('/checkout',[\App\Http\Controllers\CartController::class,'index'])->name('checkout');
+Route::post('/checkout',[\App\Http\Controllers\CartController::class,'processCheckout'])->name('checkout.process');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth','admin']],function(){

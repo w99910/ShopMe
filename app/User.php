@@ -3,15 +3,19 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-
+    use HasFactory;
     use Notifiable;
+    use Billable;
     public const Login_as_user="/home";
     public const Login_as_admin="/admin_home";
+    public $checkout;
     /**
      * The attributes that are mass assignable.
      *
@@ -47,5 +51,12 @@ class User extends Authenticatable
     }
     public function carts(){
         return $this->hasMany('App\Cart');
+    }
+    public function getTotalChargeAttribute(){
+        $carts=$this->carts;
+        foreach ($carts as $cart){
+            $this->checkout += $cart->total_price;
+        }
+        return $this->checkout;
     }
 }

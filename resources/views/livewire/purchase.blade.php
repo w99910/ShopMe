@@ -1,4 +1,4 @@
-<div class="h-full w-full flex flex-col m-0" x-data="{isDrop:true}">
+<div class="h-full w-full flex flex-col m-0" x-data="{isDrop:false}">
     <div class="flex px-5 py-5 justify-between items-center ">
         <div class="flex">
             <a href="{{route('home')}}">
@@ -15,14 +15,14 @@
                <div class="flex"> <i class="fas fa-shopping-cart text-xl"></i>
                 <span class="px-1  bg-orange-400 rounded-lg self-end text-xs">{{auth()->user()->carts->count()}}</span>
                </div>
-                 <div class="absolute w-56 bg-gray-600 right-0 mt-6 rounded-lg mr-4 px-2 py-1" x-show="isDrop">
+                 <div class="absolute w-56 bg-gray-600 right-0 mt-6 rounded-lg mr-4 px-3 py-2 text-white" x-show="isDrop">
 
                          @if (!empty($carts))
                              @foreach($carts as $cart)
-                             <div class="block">
+                             <div class="block ">
                             <div class="flex items-center justify-between">  <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
                                      {{$cart->product->name}}
-                                   <button class="px-2 py-1 bg-red-600" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
+                                   <button class="px-2 py-1 bg-red-600 rounded-lg" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
                              </div>
                              </div>
                                  @endforeach
@@ -52,26 +52,32 @@
 
                         </table>
                         <div class="flex px-3">
-                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="addCart({{$product->id}},{{$product->price}})">
-                                Add to Cart</button>
-                            <button class="px-3 py-1 rounded-lg bg-green-500 hover:bg-green-400">Proceed to Checkout</button>
+{{--                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="addCart({{$product->id}},{{$product->price}})">--}}
+                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
+                            <a class="px-3 py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center" href="{{route('checkout')}}">Proceed to Checkout</a>
                         </div>
                     </div>
             </div>
 
         </div>
         <div class="w-4/12 flex flex-col justify-between">
-            <div class="w-full py-2 rounded-lg shadow-xl px-3 h-64 overflow-y-auto" id="cart" >
+            <div class="w-full py-2 rounded-lg shadow-xl px-3 h-64 overflow-y-auto custom_scrollbar">
                 <table class="table-auto overflow-auto">
                     <tr>Your Cart</tr>
 
                     @if (!empty($carts))
 
                         @foreach($carts as $cart)
-                            <tr>
+                            <tr class="flex flex-wrap items-center justify-between">
                                 <td class="w-2/12"> <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>
                                 <td>{{$cart->product->name}}</td>
-                                <td><button class="px-2 py-1 bg-red-600" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td> </tr>
+
+                                <td><button class="p-2 bg-gray-300 focus:outline-none" wire:click="increment({{$cart}})">+</button></td>
+                                <td>{{$cart->quantity}}</td>
+
+                                    <td><button class="p-2 bg-gray-300 focus:outline-none" wire:click="decrement({{$cart}})">-</button></td>
+
+                                <td><button class="px-2 py-1 bg-red-600 focus:outline-none"  wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td> </tr>
                         @endforeach
 
                     @endif
@@ -81,11 +87,10 @@
                 </table>
 
             </div>
-            <div class="w-full flex overflow-x-scroll px-3 py-2" id="page">
+            <div class="w-full flex overflow-x-scroll px-3 py-2 shadow-inner" id="page">
                 @foreach($suggestions as $suggestion)
-                    <div class="flex flex-col w-full" style="min-width: fit-content;">
-                        <img src="{{url('storage/'.$suggestion->image_path)}}" class="object-center object-contain h-64"/>
-
+                    <div class="flex flex-col w-full bg-background mx-2 rounded-lg border-none" style="min-width: fit-content;">
+                        <img src="{{url('storage/'.$suggestion->image_path)}}" class="object-center object-cover w-56" wire:click="purchase_page({{$suggestion}})"/>
                     </div>
                 @endforeach
             </div>

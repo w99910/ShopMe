@@ -43,23 +43,14 @@
     </header>
 @endauth
 <div  class="h-screen bg-transparent flex justify-center items-center w-full">
-
     <div class="w-full bg-white items-center flex justify-center h-full">
-
         @yield('content')
-
     </div>
-
 </div>
     </div>
-
     @include('sweetalert::alert')
 @livewireScripts
-
-
     @stack('scripts')
-
-<script src="{{asset('js/custom_js/custom_js.js')}}" ></script>
-
+    <script src="{{asset('js/custom_js/custom_js.js')}}" ></script>
 </body>
 </html>

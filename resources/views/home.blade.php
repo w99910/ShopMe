@@ -2,4 +2,5 @@
 
 @section('content')
        @livewire('home')
+{{--    @livewire('testing')--}}
 @endsection

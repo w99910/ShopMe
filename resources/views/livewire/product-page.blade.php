@@ -62,55 +62,6 @@
     <tr> <td>{{$products->links()}} </td></tr>
     </tbody>
 </table>
-{{--        <table class="w-full flex flex-col  flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">--}}
-
-{{--            <thead class="text-white">--}}
-{{--            <tr class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">--}}
-{{--                <th class="p-3 text-left">ID</th>--}}
-{{--                <th class="p-3 text-left">Product_Name</th>--}}
-{{--                <th class="p-3 text-left" >Price</th>--}}
-{{--                <th class="p-3 text-left" >Available</th>--}}
-{{--                <th class="p-3 text-left" >Image</th>--}}
-{{--                <th class="p-3 text-left" >Purchased_by_User</th>--}}
-{{--                <th class="p-3 text-left" >Actions</th>--}}
-
-
-{{--            </tr>--}}
-
-{{--            </thead>--}}
-{{--            <tbody class="flex-1 sm:flex-none">--}}
-{{--            @foreach($products as $product)--}}
-{{--            <tr class="flex  flex-nowrap table-row mb-2 sm:mb-0" >--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3">{{$product->id}}</td>--}}
-
-{{--            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$product->name}}</td>--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$product->price}}</td>--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 ">{!! $product->available?'<span class="text-green-300">Available</span>':'<span class="text-red-300" >Not Available</span>'!!}</td>--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 truncate">{{$product->image_path ?? ''}}</td>--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 ">{{optional($product)->purchased_by_user}}</td>--}}
-{{--                <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 flex justify-center ">--}}
-{{--                    <div class="flex items-center flex-col">--}}
-{{--                                     @if($product->id==$confirmid)--}}
-{{--                                   <p>Are You Sure?</p>--}}
-{{--                                       <div class="flex justify-center items-center">--}}
-{{--                                           <button wire:click="delete({{$product->id}})" class="border bg-orange-400 px-3 py-1 rounded-lg focus:outline-none">Yes</button>--}}
-{{--                                           <button wire:click="unconfirmed({{$product->id}})" class="border bg-orange-400 px-3 py-1 rounded-lg  focus:outline-none">No</button>--}}
-{{--                                       </div>--}}
-{{--                                           @else--}}
-{{--                                        <button wire:click="confirm({{$product->id}})" class="border bg-red-400 px-2 py-2 rounded-lg focus:outline-none">Delete</button>--}}
-{{--                                    @endif--}}
-{{--                                 </div>--}}
-{{--                                   @if ($product->id !== $confirmid)--}}
-{{--                                        <button x-on:click="{isOpen = !isOpen}" class="px-4 bg-orange-500 rounded-lg focus:outline-none" wire:click="$emit('editform',{{$product->id}})"  >Edit</button>--}}
-
-{{--                                   @endif--}}
-{{--                </td>--}}
-
-{{--            </tr>--}}
-{{--            @endforeach--}}
-{{--            </tbody>--}}
-
-{{--        </table>--}}
 </div>
 @push('scripts')
     <script>

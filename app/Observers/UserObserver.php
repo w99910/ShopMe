@@ -16,7 +16,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        Mail::to('zlintun001@gmail.com')->send(new AdminMail($user));
+//        Mail::to('zlintun001@gmail.com')->send(new AdminMail($user));
     }
 
     /**
