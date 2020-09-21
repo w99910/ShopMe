@@ -25,6 +25,8 @@ class Checkout extends Component
         }
 
     }
+
+
     public function deleteCart(Cart $cart){
         $this->selectcart=Cart::where('id',$cart->id)->first();
         $this->selectcart->delete();

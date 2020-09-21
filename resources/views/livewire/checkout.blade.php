@@ -1,34 +1,73 @@
-<div class="w-8/12 h-full items-center p-4 ml-4 bg-lightwhite rounded-custom">
-    <table class="table-fixed overflow-auto h-full ">
-      <thead>  <tr class="border-b">
-            <td>&nbsp;</td>
-            <td>Item Name</td>
-            <td>Quantity</td>
-            <td>Price</td>
-            <td>Actions</td>
+<div class="w-full justify-between flex flex-col  sm:w-8/12 md:w-8/12 lg:w-8/12 h-full items-center mt-4 sm:mt-0 sm:ml-4 bg-lightwhite rounded sm:rounded-custom md:rounded-custom lg:rounded-custom">
+{{--    <table class="table-fixed overflow-auto h-full w-full relative inline-block m-4 custom_scrollbar ">--}}
+{{--      <thead class="w-full">--}}
+{{--      <tr class="border-b flex justify-between w-full">--}}
+{{--            <th class="px-1 py-2">&nbsp;</th>--}}
+{{--            <th class="px-1 py-2">Item Name</th>--}}
+{{--            <th class="px-1 py-2">Quantity</th>--}}
+{{--            <th class="px-1 py-2">Price</th>--}}
+{{--            <th class="px-1 py-2">Actions</th>--}}
+{{--        </tr>--}}
+{{--      </thead>--}}
+{{--     <tbody>   @if (!empty($carts))--}}
+{{--            @foreach($carts as $cart)--}}
+{{--                <tr class="border-t border-b">--}}
+{{--                    <td class="w-2/12 "> <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>--}}
+{{--                    <td>{{$cart->product->name}}</td>--}}
+{{--                    <td>--}}
+{{--                        <button class="p-2  mx-2 bg-white rounded-lg focus:outline-none" wire:click="increment({{$cart}})">+</button>{{$cart->quantity}}--}}
+{{--                        <button class="p-2 mx-2 bg-white rounded-lg focus:outline-none" wire:click="decrement({{$cart}})">-</button>--}}
+{{--                    </td>--}}
+{{--                    <td>{{$cart->price * $cart->quantity}} $</td>--}}
+{{--                    <td><button class="px-2 py-1 bg-red-600 focus:outline-none"  wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td> </tr>--}}
+{{--                @endforeach--}}
+{{--        @endif--}}
+{{--        @if (auth()->user()->carts->count()==0)--}}
+{{--           <tr><td>There is no product in your cart</td></tr>--}}
+{{--        @endif--}}
+{{--     </tbody>--}}
+{{--    </table>--}}
+    <table class="table-fixed w-full relative inline-block overflow-y-auto custom_scrollbar overflow-x-hidden">
+        <thead>
+        <tr>
+            <th class="px-1 py-2"></th>
+            <th class="px-1 py-2">Item Name</th>
+            <th class="px-1 py-2">Quantity</th>
+            <th class="px-1 py-2 ">Price</th>
+            <th class="px-1 py-2">Actions</th>
         </tr>
-      </thead>
-     <tbody>   @if (!empty($carts))
+        </thead>
+        <tbody>
+        @if (!empty($carts))
             @foreach($carts as $cart)
-                <tr class="border-t border-b">
-                    <td class="w-2/12 "> <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>
-                    <td>{{$cart->product->name}}</td>
-                    <td>
-                        <button class="p-2  mx-2 bg-gray-300 focus:outline-none" wire:click="increment({{$cart}})">+</button>{{$cart->quantity}}
-                        <button class="p-2 mx-2 bg-gray-300 focus:outline-none" wire:click="decrement({{$cart}})">-</button>
-                    </td>
-                    <td>{{$cart->price * $cart->quantity}} $</td>
-                    <td><button class="px-2 py-1 bg-red-600 focus:outline-none"  wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td> </tr>
-                @endforeach
-        @endif
+
+            <tr>
+                <td class="border px-4 py-2 w-2/12"><img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/></td>
+                <td class="border px-4 py-2">{{$cart->product->name}}</td>
+                <td class="border px-4 py-2"><button class="p-2  mx-2 bg-white rounded-lg focus:outline-none" wire:click="increment({{$cart}})">+</button>{{$cart->quantity}}
+                    <button class="p-2 mx-2 bg-white rounded-lg focus:outline-none" wire:click="decrement({{$cart}})">-</button></td>
+                <td class="border px-4 py-2">{{$cart->price * $cart->quantity}} $</td>
+                <td class="border px-4 py-2"><button class="px-2 py-1 bg-red-600 focus:outline-none"  wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td>
+
+        @endforeach
+            @endif
         @if (auth()->user()->carts->count()==0)
-                <tr><td>There is no product in your cart.</td></tr>
+            <tr class="w-full">
+                <td>There is no product in your cart</td></tr>
         @endif
-     </tbody>
-        <tfoot>
-        <tr class="border-t"><td>Total</td><td>{{$total_price}}</td></tr>
-        </tfoot>
+
+        </tbody>
     </table>
+    <div class="flex w-full justify-around mt-1 bg-semi rounded-b-custom py-1 border-none text-white">
+         <span>OrderTotal</span>
+        <span>{{$total_price}} $</span>
+    </div>
+    <div class="absolute top-0 left-0 mt-4 ml-4">
+        <a href="{{route('home')}}" class="focus:outline-none">
+            <svg id="color" enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m10.73 18.791-6.5-6.25c-.147-.142-.23-.337-.23-.541s.083-.399.23-.541l6.5-6.25c.475-.458 1.27-.119 1.27.541v3.25h5.75c.689 0 1.25.561 1.25 1.25v3.5c0 .689-.561 1.25-1.25 1.25h-5.75v3.25c0 .664-.798.995-1.27.541z" fill="#fff"/><path d="m19 12h-15c0 .204.083.399.23.541l6.5 6.25c.15.145.334.21.514.21.385-.001.756-.299.756-.751v-3.25h5.75c.689 0 1.25-.561 1.25-1.25z" fill="#dedede"/></svg>
+        </a>
+
+    </div>
 </div>
 
 

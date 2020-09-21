@@ -30,30 +30,19 @@ td.border::-webkit-scrollbar-thumb{
      border-radius: 5px;
     height: 1px;
 }
+.custom-card:before{
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-div#page::-webkit-scrollbar{
+    background: #1a202c;
+    clip-path: circle(30px at 80% 20%);
+    transition:0.5s ease-in-out;
+}
+.img-box{
+    position: absolute;
+}
 
-    width:10px;
-    height: 5px;
-}
-div#page::-webkit-scrollbar-thumb{
-    border-radius: 6px;
-    max-height: 2px;
-    background: linear-gradient(transparent,#4A4A58);
-}
-div#page::-webkit-scrollbar-thumb:hover{
-    background: linear-gradient(transparent,#00c6ff);
-}
-div#cart::-webkit-scrollbar{
-
-    width:10px;
-    height: 5px;
-}
-div#cart::-webkit-scrollbar-thumb{
-    border-radius: 6px;
-    max-height: 2px;
-    background: linear-gradient(transparent,#4A4A58);
-}
-div#cart::-webkit-scrollbar-thumb:hover{
-    background: linear-gradient(transparent,#00c6ff);
-}

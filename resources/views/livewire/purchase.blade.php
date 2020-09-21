@@ -1,4 +1,4 @@
-<div class="h-full w-full flex flex-col m-0" x-data="{isDrop:false}">
+<div class="h-full w-full flex flex-col m-0 bg-soft_pink" x-data="{isDrop:false}">
     <div class="flex px-5 py-5 justify-between items-center ">
         <div class="flex">
             <a href="{{route('home')}}">
@@ -7,11 +7,11 @@
         </div>
 
         <div class="pr-5 flex">
-            <div class="mx-6 flex">
+            <div class="mx-6 flex p-2 rounded-xl bg-white">
                 <i class="far fa-bell text-xl "></i>
                 <i class="fas fa-exclamation-circle text-xs text-orange-600"></i>
             </div>
-            <div class="flex flex-col" x-on:click="isDrop = !isDrop" >
+            <div class="flex flex-col p-2 rounded-xl bg-white" x-on:click="isDrop = !isDrop" >
                <div class="flex"> <i class="fas fa-shopping-cart text-xl"></i>
                 <span class="px-1  bg-orange-400 rounded-lg self-end text-xs">{{auth()->user()->carts->count()}}</span>
                </div>
@@ -40,11 +40,11 @@
     </div>
     <div class="w-full h-full flex mx-auto border-t-2 border-gray-400 px-5 py-3">
         <div class="w-8/12 flex mr-5">
-            <div class="w-full border-none rounded-lg shadow-lg flex flex-col sm:flex-row rounded-lg">
-                 <div class="w-full justify-center items-center flex">
+            <div class="w-full border-none rounded-lg shadow-lg flex flex-col sm:flex-row rounded-lg bg-white">
+                 <div class="w-full justify-center items-center flex bg-semi">
                      <img src="{{url('storage/'.$product->image_path)}}" class="inline-flex object-cover object-center "/>
                  </div>
-                    <div class="w-3/6 py-2 pr-3 flex flex-col justify-between">
+                    <div class="w-3/6 py-2 px-3 flex flex-col justify-between">
                         <table class="table-auto">
                          <tr><td class="border hover:border-blue-200 px-2 py-2">Name</td><td class="border hover:border-blue-200 px-2 py-2">{{$product->name}}</td></tr>
                             <tr><td class="border hover:border-blue-200 px-2 py-2">Price</td><td class="border hover:border-blue-200 px-2 py-2">${{$product->price}}</td></tr>
@@ -53,15 +53,15 @@
                         </table>
                         <div class="flex px-3">
 {{--                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="addCart({{$product->id}},{{$product->price}})">--}}
-                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
-                            <a class="px-3 py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center" href="{{route('checkout')}}">Proceed to Checkout</a>
+                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 focus:outline-none " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
+                            <a class="px-3 py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center focus:outline-none" href="{{route('checkout')}}">Proceed to Checkout</a>
                         </div>
                     </div>
             </div>
 
         </div>
         <div class="w-4/12 flex flex-col justify-between">
-            <div class="w-full py-2 rounded-lg shadow-xl px-3 h-64 overflow-y-auto custom_scrollbar">
+            <div class="w-full py-2 rounded-lg shadow-xl px-3 h-64 custom_scrollbar bg-white overflow-auto">
                 <table class="table-auto overflow-auto">
                     <tr>Your Cart</tr>
 
@@ -70,7 +70,7 @@
                         @foreach($carts as $cart)
                             <tr class="flex flex-wrap items-center justify-between">
                                 <td class="w-2/12"> <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>
-                                <td>{{$cart->product->name}}</td>
+                                <td class="truncate">{{$cart->product->name}}</td>
 
                                 <td><button class="p-2 bg-gray-300 focus:outline-none" wire:click="increment({{$cart}})">+</button></td>
                                 <td>{{$cart->quantity}}</td>
@@ -87,10 +87,10 @@
                 </table>
 
             </div>
-            <div class="w-full flex overflow-x-scroll px-3 py-2 shadow-inner" id="page">
+            <div class="w-full flex overflow-x-scroll px-3 py-2 custom_scrollbar">
                 @foreach($suggestions as $suggestion)
-                    <div class="flex flex-col w-full bg-background mx-2 rounded-lg border-none" style="min-width: fit-content;">
-                        <img src="{{url('storage/'.$suggestion->image_path)}}" class="object-center object-cover w-56" wire:click="purchase_page({{$suggestion}})"/>
+                    <div class="flex flex-col w-full bg-semi mx-2 rounded-lg border-none" style="min-width: fit-content;">
+                        <img src="{{url('storage/'.$suggestion->image_path)}}" class="object-center object-cover w-56 cursor-pointer" wire:click="purchase_page({{$suggestion}})"/>
                     </div>
                 @endforeach
             </div>

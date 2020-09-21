@@ -32,13 +32,15 @@
         }
     </style>
 </head>
-<body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-white "  >
+<body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-soft_pink antialiased "  >
 @auth
     <div id="app" class="flex">
-        <header class="flex flex-col bg-background h-screen justify-between items-center rounded-tr-custom text-white w-2/12" x-data="{isShow:false}">
-            <div class="flex flex-col mx-8">
-                <img src="{{url('storage/product.gaming_room.png')}}" class="inline object-cover w-12 h-12 rounded-full object-center visible self-end mt-5" alt="image1" >
-                <nav class="flex flex-col mx-auto flex mt-8 ">
+        <header class="flex flex-col bg-background justify-between items-center rounded-tr-custom_bg rounded-br-custom_bg mt-1 mb-1 ml-1 text-white w-2/12" x-data="{isShow:false}">
+{{--            <img src="{{url('storage/product.gaming_room.png')}}" class="inline object-cover w-12 h-12 rounded-full object-center visible self-end mt-5" alt="image1" >--}}
+
+            <div class="flex flex-col ml-4 mt-3">
+                <h2 class="font-handwrite  sm:text-xl md:text-3xl">E-Commerce</h2>
+                <nav class="flex flex-col mx-auto flex mt-4 ">
                     <ul>
                         <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('home')"><img src="{{asset('images/browser.png')}}" alt="image" class="w-2/12 h-auto  mr-3"/> Home</li>
                         <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('new')"><img src="{{asset('images/new.png')}}" alt="image" class="w-2/12 h-auto  mr-3"/> Newest</li>
@@ -48,14 +50,14 @@
                     </ul>
                 </nav>
             </div>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class=" flex items-center justify-start  pointer-cursor py-5">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class=" flex items-center justify-start  pointer-cursor py-5 bg-logout px-10 rounded-br-custom_bg rounded-lg mb-3">
                 @csrf
                 <i class="fas fa-sign-out-alt pr-2"></i>
                 <button type="submit" class="focus:outline-none">Logout</button>
             </form>
         </header>
         <div  class="h-screen bg-transparent flex justify-center items-center w-full" id="app">
-        <div class="w-full bg-white items-center flex justify-center h-full">
+        <div class="w-full bg-soft_pink items-center flex justify-center h-full">
             @yield('content')
         </div>
         </div>

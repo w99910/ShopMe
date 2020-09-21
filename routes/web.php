@@ -69,3 +69,4 @@ Route::group(['prefix' => '2fa'],function() {
 Route::get('/test_middleware', function () {
     return view('auth.2fa_verify');
 })->middleware('2fa');
+ Route::view('intro','intro');

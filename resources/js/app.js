@@ -5,7 +5,8 @@
  */
 import 'alpinejs';
 require('./bootstrap');
-
+import gsap from "gsap";
+window.gsap = gsap;
 window.Vue = require('vue');
 import swal from 'sweetalert2';
 window.Swal = swal;
@@ -29,6 +30,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// const app = new Vue({
+//     el: '#app',
+// });

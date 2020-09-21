@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-    @livewireStyles
+{{--    @livewireStyles--}}
     <style>
         input#menu-toggle:checked ~ #menu {
             display: block;
@@ -38,41 +38,10 @@
     </style>
 </head>
 <body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
-@auth
-
-    <header class="bg-white lg:px-16 px-6 bg-transparent flex flex-wrap items-center lg:py-0 py-1  top-0 left-0 w-full">
-        <div class="flex-1 flex justify-between items-center">
-            <a href="#">
-                <i class="fas fa-cat text-3xl"></i>
-            </a>
-        </div>
-
-        <label for="menu-toggle" class="cursor-pointer lg:hidden block"><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
-        <input class="hidden" type="checkbox" id="menu-toggle" />
-
-        <div class="items-center lg:w-auto w-full sm:hidden md:hidden lg:flex" id="menu" >
-            <nav>
-                <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Features</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Pricing</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Documentation</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="#">Support</a></li>
-                </ul>
-            </nav>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
-                @csrf <button type="submit">Logout</button>
-            </form>
-
-        </div>
-
-    </header>
-@endauth
-    <div id="app" class="bg-background h-full flex justify-center items-center">
+<div class="bg-background h-full flex justify-center items-center">
 @guest
         <main class="h-full flex py-24 w-8/12 relative items-center">
-
-            @yield('content')
-
+                        @yield('content')
         </main>
         @endguest
 @auth
@@ -85,6 +54,13 @@
     </div>
     @livewireScripts
 @include('sweetalert::alert')
- @stack('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+    // const tl = gsap.timeline({defaults: {duration: .7, ease: Back.easeOut.config(2), opacity: 0}});
+    const tl = gsap.timeline({ defaults:{ duration:2.5,delay:1 , ease:"none" } });
+
+    tl.to('.image',{y:"16",repeat:-1,yoyo:true})
+
+</script>
 </body>
 </html>

@@ -25,66 +25,44 @@
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
     @livewireStyles
     <style>
-        input#menu-toggle:checked ~ #menu {
-            display: block;
 
-        }
-        @media only screen and (max-width: 640px) {
-            div#menu{
-                display: none;
-            }
-            div#png1{
-                display:none;
-            }
-
-        }
-        .form-item{
-            @apply rounded px-2 py-1;
-        }
-        .form-item:focus{
-            @apply border-blue-300 outline-none ;
-        }
     </style>
 </head>
 <body class=" font-poppins overflow-hidden h-screen m-0"  >
 @auth
-    <div id="app"></div>
-    <div class="absolute top-0 left-0 mt-4 ml-4">
-        <a href="{{route('home')}}">
-            <svg id="color" enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12 12-5.383 12-12-5.383-12-12-12z" fill="#2196f3"/><path d="m12 0c-6.617 0-12 5.383-12 12s5.383 12 12 12z" fill="#1d83d4"/><path d="m10.73 18.791-6.5-6.25c-.147-.142-.23-.337-.23-.541s.083-.399.23-.541l6.5-6.25c.475-.458 1.27-.119 1.27.541v3.25h5.75c.689 0 1.25.561 1.25 1.25v3.5c0 .689-.561 1.25-1.25 1.25h-5.75v3.25c0 .664-.798.995-1.27.541z" fill="#fff"/><path d="m19 12h-15c0 .204.083.399.23.541l6.5 6.25c.15.145.334.21.514.21.385-.001.756-.299.756-.751v-3.25h5.75c.689 0 1.25-.561 1.25-1.25z" fill="#dedede"/></svg>
-        </a>
-    </div>
+{{--    <div id="app"></div>--}}
+
     <div class="h-full bg-transparent w-full">
         <div class="w-full p-10 h-full">
-            <div class="w-full py-5 rounded-lg shadow-xl px-5 h-64 h-full flex bg-background">
+            <div class="w-full py-5 rounded-lg shadow-xl px-5 h-64 h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-background ">
                 <div class="w-4/12 h-full">
                     <form action="{{route('checkout.process')}}" method="POST" id="checkout-form" class="h-full rounded-lg bg-lightwhite flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
                         @csrf
 
-                      <div class="flex flex-wrap">
-                       <div class="flex flex-col">
-                           <input id="first-name" name="first_name" x-model="first_name"  placeholder="First name" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
-                       </div>
-                          <div class="flex flex-col">
-                              <input id="last-name" x-model="last_name" name="last_name" placeholder="Last name" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
-                          </div>
-                          <div class="flex flex-col">
-                              <input id="email" x-model="email" name="email" placeholder="Email" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
-                          </div>
-                          <div class="flex flex-col">
-                              <input id="ph_no" name="ph_no" x-model="ph_no" placeholder="Phone Number" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
-                          </div>
+                        <div class="flex flex-wrap">
+                            <div class="flex flex-col">
+                                <input id="first-name" name="first_name" x-model="first_name"  placeholder="First name" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
+                            </div>
+                            <div class="flex flex-col">
+                                <input id="last-name" x-model="last_name" name="last_name" placeholder="Last name" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
+                            </div>
+                            <div class="flex flex-col">
+                                <input id="email" x-model="email" name="email" placeholder="Email" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
+                            </div>
+                            <div class="flex flex-col">
+                                <input id="ph_no" name="ph_no" x-model="ph_no" placeholder="Phone Number" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
+                            </div>
 
-                      </div>
+                        </div>
                         <input id="payment-method" type="hidden" name="payment-method" value="">
                         <!-- Stripe Elements Placeholder -->
                         <div id="card-element" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" ></div>
-                        <div class="">
+                        <div>
                             <ul>
                                 <li>
                                     <span :class="{'text-green-700':  first_name.length > 0, 'text-red-700': first_name.length == 0}"
-                                            class="font-medium text-sm ml-3"
-                                            x-text="first_name.length > 0 ? '' : 'First Name is required' ">
+                                          class="font-medium text-sm ml-3"
+                                          x-text="first_name.length > 0 ? '' : 'First Name is required' ">
                                     </span>
                                 </li>
                                 <li>
@@ -111,7 +89,7 @@
                         </button>
                     </form>
                 </div>
-        @livewire('checkout')
+                @livewire('checkout')
             </div>
         </div>
     </div>
@@ -130,8 +108,12 @@
         form.appendChild(hiddenInput);
 
     }
+    let firstname=document.getElementById('first-name');
+    let lastname=document.getElementById('last-name');
+    let email=document.getElementById('email');
+    let ph_no=document.getElementById('ph_no');
     $(document).ready(function() {
-        let stripe = Stripe('{{env('STRIPE_KEY')}}');
+        let stripe = Stripe("{{env('STRIPE_KEY')}}");
 
         let elements = stripe.elements();
         let style = {
@@ -157,6 +139,13 @@
             if (paymentMethod) {
                 return true;
             }
+        if (firstname.value==''&&lastname.value==''&&email.value==''&&ph_no.value=='')
+        {
+            Swal.fire({
+                icon:"error",
+                text:"Input fields are required.Please Try again"
+            })
+        }  else {
             stripe.confirmCardSetup(
                 "{{$intent->client_secret}}",
                 {
@@ -177,6 +166,7 @@
                     $('#checkout-form').submit()
                 }
             });
+        }
             return false;
         });
     });

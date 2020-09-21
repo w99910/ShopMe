@@ -31,7 +31,7 @@ class UserPage extends Component
     public function delete($id){
         $user=User::find($id);
         $user->delete();
-        session()->flash('message', 'Proudct '.$user->name.  ' successfully deleted.');
+        session()->flash('message', 'User '.$user->name.  ' successfully deleted.');
         $this->resetPage();
         return redirect()->back();
     }

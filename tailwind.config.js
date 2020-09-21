@@ -13,19 +13,24 @@ module.exports = {
               semi: 'rgba(0, 0, 0, 0.75)',
               womanbg:'#C58A8A',
               dark_gray:'#7D828C',
-              lightwhite:'#F2F7FB',
+              lightwhite:'#e0e3e9',
               lightblue_gray:'#4A4A58',
-              dribbble:'#011F3B',
-              alert:'#FFAE33'
+              dribbble:'#82D2EE',
+              alert:'#FFAE33',
+              logout:'#393766',
+              soft_pink:'#F1EEF9',
           },
           inset:{
               '1/2': '50%',
           }   ,
           fontFamily: {
               poppins: ['Poppins'],
+              handwrite:['Gochi Hand'],
           },
           borderRadius:{
+              'xl':'1em',
               'custom':'2rem',
+              'custom_bg':'3em',
           }
 
       },

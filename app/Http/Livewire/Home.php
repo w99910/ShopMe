@@ -14,7 +14,13 @@ class Home extends Component
     public $carts=[];
     public $select;
     public $products;
+    public $search;
 
+    public function updatedSearch(){
+       $products=Product::where('name', 'like', '%'.$this->search.'%')->get();
+       $this->products=$products;
+       $this->emit('refresh');
+    }
     protected $listeners=['new'=>'newest','discount'=>'discount','home'=>'home'];
     public function home(){
         $this->products=Product::all();

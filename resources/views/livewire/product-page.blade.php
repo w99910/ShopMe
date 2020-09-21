@@ -33,7 +33,7 @@
     <tbody>
     @foreach($products as $product)
         <tr>
-            <td class="border px-4 py-2">{{$product->id}}{{$product->id}}</td>
+            <td class="border px-4 py-2">{{$product->id}}</td>
             <td class="border px-4 py-2">{{$product->name}}</td>
             <td class="border px-4 py-2">{{$product->price}}</td>
             <td class="border px-4 py-2">{!! $product->available?'<span class="text-green-300">Available</span>':'<span class="text-red-300" >Not Available</span>'!!}</td>
