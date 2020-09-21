@@ -97,5 +97,46 @@ class ProductSeeder extends Seeder
                 'quantity'=>10,
                 'created_at'=>now()->toDateString(),
                 'updated_at'=>now()->toDateString(),]);
+        DB::table('products')
+            ->insert
+            (['name'=>'Trucker Jacket',
+                'price'=>40,
+                'image_path'=>'product.Trucker Jacket.png',
+                'quantity'=>10,
+                'created_at'=>now()->toDateString(),
+                'updated_at'=>now()->toDateString(),]);
+        DB::table('products')
+            ->insert
+            (['name'=>'Jacket Greynish',
+                'price'=>20,
+                'image_path'=>'product.Jacket Greynish.png',
+                'quantity'=>10,
+                'created_at'=>now()->toDateString(),
+                'updated_at'=>now()->toDateString(),]);
+        DB::table('products')
+            ->insert
+            (['name'=>'Hoodie 20',
+                'price'=>30,
+                'image_path'=>'product.Hoodie 20.png',
+                'quantity'=>10,
+                'created_at'=>now()->toDateString(),
+                'updated_at'=>now()->toDateString(),]);
+        DB::table('products')
+            ->insert
+            (['name'=>'Hoodie Color',
+                'price'=>58,
+                'image_path'=>'product.Hoodie Color.png',
+                'quantity'=>10,
+                'created_at'=>now()->toDateString(),
+                'updated_at'=>now()->toDateString(),]);
+        DB::table('products')
+            ->insert
+            (['name'=>'Jacket Yolo 12',
+                'price'=>40,
+                'image_path'=>'product.Jacket Yolo 12.png',
+                'quantity'=>15,
+                'created_at'=>now()->toDateString(),
+                'updated_at'=>now()->toDateString(),]);
+
     }
 }

@@ -40,7 +40,7 @@
 <body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
 <div class="bg-background h-full flex justify-center items-center">
 @guest
-        <main class="h-full flex py-24 w-8/12 relative items-center">
+        <main class="h-full flex py-24 w-8/12 relative items-center justify-center">
                         @yield('content')
         </main>
         @endguest
@@ -54,13 +54,6 @@
     </div>
     @livewireScripts
 @include('sweetalert::alert')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script>
-    // const tl = gsap.timeline({defaults: {duration: .7, ease: Back.easeOut.config(2), opacity: 0}});
-    const tl = gsap.timeline({ defaults:{ duration:2.5,delay:1 , ease:"none" } });
-
-    tl.to('.image',{y:"16",repeat:-1,yoyo:true})
-
-</script>
+@stack('scripts')
 </body>
 </html>

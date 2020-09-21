@@ -68,7 +68,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script>
     const tl = gsap.timeline({ defaults:{ ease:"power1.out" } });
-    tl.to(".text", {y:"0%",duration: 1 , stagger:0.25});
+    tl.to(".text", {y:"0%",duration: 1 , stagger:0.25 ,delay:0.5});
     tl.to('.slider',{y:"-100%",duration:1 ,delay:0.2})
     tl.to('.intro',{y:"-100%", duration:1},'-=1')
      tl.to('.greeting',{x:'50%',duration:1,delay:0.5})

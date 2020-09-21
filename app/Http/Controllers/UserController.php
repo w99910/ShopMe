@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Laravel\Socialite\Facades\Socialite;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -44,6 +45,33 @@ if($validate){
     Session::flash('message', 'Incorrect Email Or Password.Please Try Again.');
     return redirect()->back();
 }
+
+    }
+    public function redirectToProvider($name)
+    {
+        return Socialite::driver($name)->redirect();
+
+
+    }
+    public function handleProviderCallback($name)
+    {
+        $user = Socialite::driver($name)->user();
+       $oauth_user=User::where('email',$user->getEmail())->first();
+
+      if($oauth_user === null){
+          $email=$user->getEmail();
+           if ($user->getName()===null) {
+               $auth_user=User::create(['name'=>$user->getNickname(),'email'=>$user->getEmail(),'password'=>bcrypt('12345678')]);
+               return view('auth.passwords.password_oauth', compact('auth_user'));
+           }
+           else {
+               $auth_user=User::create(['name'=>$user->getName(),'email'=>$user->getEmail(),'password'=>bcrypt('12345678')]);
+               return view('auth.passwords.password_oauth', compact('auth_user'));
+           }
+      } else {
+          Auth::login($oauth_user);
+          return redirect(User::isAdmin($oauth_user)?User::Login_as_admin:User::Login_as_user);
+      }
 
     }
 
