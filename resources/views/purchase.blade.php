@@ -39,7 +39,7 @@
         }
     </style>
 </head>
-<body class=" font-poppins overflow-hidden h-screen m-0"  >
+<body class=" font-poppins overflow-auto sm:overflow-hidden h-screen m-0"  >
 @auth
         <div  class="h-full bg-transparent w-full" id="app">
               @livewire('purchase',['product'=>$product])

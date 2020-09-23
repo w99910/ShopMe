@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Charts\RevenueChart;
 use App\Observers\UserObserver;
 use App\User;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {

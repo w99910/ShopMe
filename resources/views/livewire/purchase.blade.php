@@ -7,60 +7,61 @@
         </div>
 
         <div class="pr-5 flex">
-            <div class="mx-6 flex p-2 rounded-xl bg-white">
-                <i class="far fa-bell text-xl "></i>
-                <i class="fas fa-exclamation-circle text-xs text-orange-600"></i>
+            <div class="mr-3 p-2 rounded-xl bg-white">
+                <a href="{{route('checkout')}}" class="focus:outline-none hover:cursor-pointer"> <i class="fas fa-cash-register"></i>
+                </a>
             </div>
-            <div class="flex flex-col p-2 rounded-xl bg-white" x-on:click="isDrop = !isDrop" >
-               <div class="flex"> <i class="fas fa-shopping-cart text-xl"></i>
-                <span class="px-1  bg-orange-400 rounded-lg self-end text-xs">{{auth()->user()->carts->count()}}</span>
-               </div>
-                 <div class="absolute w-56 bg-gray-600 right-0 mt-6 rounded-lg mr-4 px-3 py-2 text-white" x-show="isDrop">
-
-                         @if (!empty($carts))
-                             @foreach($carts as $cart)
-                             <div class="block ">
-                            <div class="flex items-center justify-between">  <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
-                                     {{$cart->product->name}}
-                                   <button class="px-2 py-1 bg-red-600 rounded-lg" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
-                             </div>
-                             </div>
-                                 @endforeach
-
-                         @endif
-                         @if (auth()->user()->carts->count()==0)
-                           <div class="block">There is no product in your Cart</div>
-                         @endif
-
-                 </div>
+            <div class="flex flex-col p-2 rounded-xl bg-white mr-3 pt-3" x-on:click="isDrop = !isDrop" x-on:click.away="isDrop = false" >
+                <div class="flex cursor-pointer"> <i class="fas fa-shopping-cart"></i>
+                    <span class="px-1  bg-orange-400 rounded-lg self-end text-xs">{{auth()->user()->carts->count()}}</span>
+                </div>
+                <div class="absolute w-56 bg-gray-600 right-0 mt-6 rounded-lg mr-4 px-2 py-1 text-white z-40 shadow-lg" x-show="isDrop">
+                    @if (!empty($carts))
+                        @foreach($carts as $cart)
+                            <div class="block">
+                                <div class="flex items-center justify-between">  <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
+                                    {{$cart->product->name}}
+                                    <button class="px-2 py-1 bg-red-500 rounded-lg" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    @if (auth()->user()->carts->count()==0)
+                        <div class="block"><p class="px-2 py-1">There is no product in your Cart</p></div>
+                    @endif
+                </div>
+            </div>
+            <div class="mr-3 flex rounded">
+                <img src="{{ Avatar::create(auth()->user()->name)->toBase64() }}" alt="{{auth()->user()->name}}" class="w-10 h-10" />
             </div>
 
         </div>
 
     </div>
-    <div class="w-full h-full flex mx-auto border-t-2 border-gray-400 px-5 py-3">
-        <div class="w-8/12 flex mr-5">
+    <div class="w-full h-full flex flex-col sm:flex-row mx-auto border-t-2 border-gray-400 px-5 py-3">
+        <div class="w-full sm:w-8/12 flex mr-5">
             <div class="w-full border-none rounded-lg shadow-lg flex flex-col sm:flex-row rounded-lg bg-white">
                  <div class="w-full justify-center items-center flex bg-semi">
                      <img src="{{url('storage/'.$product->image_path)}}" class="inline-flex object-cover object-center "/>
                  </div>
-                    <div class="w-3/6 py-2 px-3 flex flex-col justify-between">
+                    <div class="w-full sm:w-3/6 py-2 px-3 flex flex-col justify-between">
                         <table class="table-auto">
                          <tr><td class="border hover:border-blue-200 px-2 py-2">Name</td><td class="border hover:border-blue-200 px-2 py-2">{{$product->name}}</td></tr>
                             <tr><td class="border hover:border-blue-200 px-2 py-2">Price</td><td class="border hover:border-blue-200 px-2 py-2">${{$product->price}}</td></tr>
                             <tr><td class="border hover:border-blue-200 px-2 py-2">Available Quantity</td><td class="border hover:border-blue-200 px-2 py-2">{{$product->quantity}}</td></tr>
+                            <tr><td class="border hover:border-blue-200 px-2 py-2">Size</td><td class="border hover:border-blue-200 px-2 py-2">{{$product->size}}</td></tr>
 
                         </table>
                         <div class="flex px-3">
 {{--                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="addCart({{$product->id}},{{$product->price}})">--}}
-                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 focus:outline-none " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
-                            <a class="px-3 py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center focus:outline-none" href="{{route('checkout')}}">Proceed to Checkout</a>
+                            <button class="w-4/12 sm:py-1 sm:text-md rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 focus:outline-none text-white " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
+                            <a class="w-8/12 sm:py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center focus:outline-none text-white"  href="{{route('checkout')}}">Proceed to Checkout</a>
                         </div>
                     </div>
             </div>
 
         </div>
-        <div class="w-4/12 flex flex-col justify-between">
+        <div class="w-full my-5 sm:m-0 sm:w-4/12 flex flex-col justify-between">
             <div class="w-full py-2 rounded-lg shadow-xl px-3 h-64 custom_scrollbar bg-white overflow-auto">
                 <table class="table-auto overflow-auto">
                     <tr>Your Cart</tr>
@@ -87,7 +88,8 @@
                 </table>
 
             </div>
-            <div class="w-full flex overflow-x-scroll px-3 py-2 custom_scrollbar">
+            <div class="w-full flex overflow-x-scroll px-3 py-2 custom_scrollbar relative h-full sm:h-auto">
+                <span class="bg-lightwhite px-2 rounded-lg text-gray-600">You may also like this</span>
                 @foreach($suggestions as $suggestion)
                     <div class="flex flex-col w-full bg-semi mx-2 rounded-lg border-none" style="min-width: fit-content;">
                         <img src="{{url('storage/'.$suggestion->image_path)}}" class="object-center object-cover w-56 cursor-pointer" wire:click="purchase_page({{$suggestion}})"/>

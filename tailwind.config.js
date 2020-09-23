@@ -19,6 +19,8 @@ module.exports = {
               alert:'#FFAE33',
               logout:'#393766',
               soft_pink:'#F1EEF9',
+              soft_purple:'#cabbe9',
+              redme:'#28385e',
           },
           inset:{
               '1/2': '50%',
@@ -31,6 +33,9 @@ module.exports = {
               'xl':'1em',
               'custom':'2rem',
               'custom_bg':'3em',
+          },
+          zIndex:{
+            '100':100,
           }
 
       },

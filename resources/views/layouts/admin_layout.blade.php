@@ -7,14 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'E-Commerce') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,7 +25,7 @@
 </head>
 <body class=" font-poppins h-0 max-h-screen min-h-screen overflow-hidden bg-cover "  >
 @auth
-    <div id="app" class="flex">
+    <div class="flex">
     <header class="flex flex-col bg-gray-300 h-screen justify-between items-center px-10 ">
         <nav class="flex flex-col mx-auto flex ">
 
@@ -51,6 +50,7 @@
     @include('sweetalert::alert')
 @livewireScripts
     @stack('scripts')
+
     <script src="{{asset('js/custom_js/custom_js.js')}}" ></script>
 </body>
 </html>

@@ -1,32 +1,5 @@
 <div class="w-full justify-between flex flex-col  sm:w-8/12 md:w-8/12 lg:w-8/12 h-full items-center mt-4 sm:mt-0 sm:ml-4 bg-lightwhite rounded sm:rounded-custom md:rounded-custom lg:rounded-custom">
-{{--    <table class="table-fixed overflow-auto h-full w-full relative inline-block m-4 custom_scrollbar ">--}}
-{{--      <thead class="w-full">--}}
-{{--      <tr class="border-b flex justify-between w-full">--}}
-{{--            <th class="px-1 py-2">&nbsp;</th>--}}
-{{--            <th class="px-1 py-2">Item Name</th>--}}
-{{--            <th class="px-1 py-2">Quantity</th>--}}
-{{--            <th class="px-1 py-2">Price</th>--}}
-{{--            <th class="px-1 py-2">Actions</th>--}}
-{{--        </tr>--}}
-{{--      </thead>--}}
-{{--     <tbody>   @if (!empty($carts))--}}
-{{--            @foreach($carts as $cart)--}}
-{{--                <tr class="border-t border-b">--}}
-{{--                    <td class="w-2/12 "> <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>--}}
-{{--                    <td>{{$cart->product->name}}</td>--}}
-{{--                    <td>--}}
-{{--                        <button class="p-2  mx-2 bg-white rounded-lg focus:outline-none" wire:click="increment({{$cart}})">+</button>{{$cart->quantity}}--}}
-{{--                        <button class="p-2 mx-2 bg-white rounded-lg focus:outline-none" wire:click="decrement({{$cart}})">-</button>--}}
-{{--                    </td>--}}
-{{--                    <td>{{$cart->price * $cart->quantity}} $</td>--}}
-{{--                    <td><button class="px-2 py-1 bg-red-600 focus:outline-none"  wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button></td> </tr>--}}
-{{--                @endforeach--}}
-{{--        @endif--}}
-{{--        @if (auth()->user()->carts->count()==0)--}}
-{{--           <tr><td>There is no product in your cart</td></tr>--}}
-{{--        @endif--}}
-{{--     </tbody>--}}
-{{--    </table>--}}
+
     <table class="table-fixed w-full relative inline-block overflow-y-auto custom_scrollbar overflow-x-hidden">
         <thead>
         <tr>
@@ -42,7 +15,7 @@
             @foreach($carts as $cart)
 
             <tr>
-                <td class="border px-4 py-2 w-2/12"><img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/></td>
+                <td class="border px-4 py-2 w-3/12"><img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover"/></td>
                 <td class="border px-4 py-2">{{$cart->product->name}}</td>
                 <td class="border px-4 py-2"><button class="p-2  mx-2 bg-white rounded-lg focus:outline-none" wire:click="increment({{$cart}})">+</button>{{$cart->quantity}}
                     <button class="p-2 mx-2 bg-white rounded-lg focus:outline-none" wire:click="decrement({{$cart}})">-</button></td>
@@ -58,7 +31,7 @@
 
         </tbody>
     </table>
-    <div class="flex w-full justify-around mt-1 bg-semi rounded-b-custom py-1 border-none text-white">
+    <div class="flex w-full justify-around mt-1 bg-semi rounded-none sm:rounded-b-custom py-1 border-none text-white">
          <span>OrderTotal</span>
         <span>{{$total_price}} $</span>
     </div>

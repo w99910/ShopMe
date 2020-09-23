@@ -5,7 +5,7 @@
     @if(session()->has('message'))
     <div class=" bg-orange-400 absolute right-0 top-0 mt-4 mr-2" x-show="alert"><span class="flex justify-between px-3 py-2">{{session()->get('message')}}<button x-on:click="alert = !alert"><i class="far fa-times-circle"></i></button></span> </div>
     @endif
-    <div class="col-span-1 bg-primary flex justify-center items-center rounded-bl-custom rounded-tl-custom overflow-hidden">
+    <div class="col-span-1 bg-primary flex justify-center items-center rounded-bl-custom rounded-tl-custom overflow-hidden" id="png1">
         <img src="{{asset("images/authentication.png")}}" class="image inline-block w-10/12 py-20" alt="authentication"/>
         </div>
     <div class="rounded-custom col-span-2 sm:col-span-1 bg-secondary sm:rounded-br-custom sm:rounded-tr-custom sm:rounded-bl-none sm:rounded-tl-none flex justify-around items-center px-10 py-10 relative">

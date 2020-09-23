@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
+use Laravolt\Avatar\Avatar;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -26,26 +27,23 @@ class UserController extends Controller
         return view('auth.register');
     }
     public function signIn(Request $request){
-$validate=$request->validate([
+    $validate=$request->validate([
    'email' => 'required|email',
    'password' =>'required',
-]);
+    ]);
 
-if($validate){
-   $credentials=$request->only('email','password');
+    if($validate){
+    $credentials=$request->only('email','password');
+    $remember=$this->isRemember($request->remember);
 
-   if (Auth::attempt($credentials)){
-
-       $user=User::where('email',$credentials['email'])->first();
-
-       Auth::login($user);
-
-       return redirect(User::isAdmin($user)?User::Login_as_admin:User::Login_as_user);
-   }
+        if (Auth::attempt($credentials)){
+            $user=User::where('email',$credentials['email'])->first();
+            Auth::login($user,$remember);
+            return redirect(User::isAdmin($user)?User::Login_as_admin:User::Login_as_user);
+        }
     Session::flash('message', 'Incorrect Email Or Password.Please Try Again.');
     return redirect()->back();
-}
-
+        }
     }
     public function redirectToProvider($name)
     {
@@ -74,6 +72,9 @@ if($validate){
       }
 
     }
+    public function isRemember($remember){
+        return $remember !== null;
+    }
 
     public function create(Request $request)
     {
@@ -84,7 +85,12 @@ if($validate){
        ]);
        if($validate){
            $user=User::firstOrCreate(['name'=>$request->name,'email'=>$request->email,'password'=>bcrypt($request->password)]);
+//               $avator=new Avatar();
+//           \Storage::put($user->name.'.png',Avatar::create($user->name)->toBase64());
+//           $user->profile_url=$user->name.'.png';
+//           $user->save();
            Auth::login($user);
+           toast('Welcome, '.$user->name,'success');
           return redirect()->route('home');
        }
     }

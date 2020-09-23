@@ -28,18 +28,18 @@
 
     </style>
 </head>
-<body class=" font-poppins overflow-hidden h-screen m-0"  >
+<body class=" font-poppins overflow-y-auto sm:overflow-hidden h-screen m-0  "  >
 @auth
 {{--    <div id="app"></div>--}}
 
     <div class="h-full bg-transparent w-full">
-        <div class="w-full p-10 h-full">
-            <div class="w-full py-5 rounded-lg shadow-xl px-5 h-64 h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-background ">
-                <div class="w-4/12 h-full">
+        <div class="w-full p-0 sm:p-10 h-full inline-block sm:block">
+            <div class="w-full py-5 rounded-none sm:rounded-lg shadow-xl px-5 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-background ">
+                <div class="h-full w-full sm:w-1/3">
                     <form action="{{route('checkout.process')}}" method="POST" id="checkout-form" class="h-full rounded-lg bg-lightwhite flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
                         @csrf
 
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-col">
                             <div class="flex flex-col">
                                 <input id="first-name" name="first_name" x-model="first_name"  placeholder="First name" type="text" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" autocomplete="off">
                             </div>

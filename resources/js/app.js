@@ -6,6 +6,8 @@
 import 'alpinejs';
 require('./bootstrap');
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 window.gsap = gsap;
 window.Vue = require('vue');
 import swal from 'sweetalert2';

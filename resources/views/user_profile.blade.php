@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
-{{--    @livewireStyles--}}
+    {{--    @livewireStyles--}}
     <style>
         input#menu-toggle:checked ~ #menu {
             display: block;
@@ -30,29 +30,16 @@
             div#menu{
                 display: none;
             }
-           div#png1{
-               display:none;
-           }
+            div#png1{
+                display:none;
+            }
 
         }
     </style>
 </head>
 <body class="font-poppins h-0 max-h-screen min-h-screen overflow-hidden">
-<div class="bg-background h-full flex justify-center items-center">
-@guest
-        <main class="h-full flex py-24 w-8/12 relative items-center justify-center">
-                        @yield('content')
-        </main>
-        @endguest
-@auth
-        <main class="h-full flex py-24 w-8/12 relative items-center">
-
-            @yield('2fa')
-
-        </main>
-    @endauth
-    </div>
-    @livewireScripts
+@livewire('user-profile');
+@livewireScripts
 @include('sweetalert::alert')
 @stack('scripts')
 </body>
