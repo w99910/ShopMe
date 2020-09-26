@@ -25,10 +25,12 @@
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
     @livewireStyles
     <style>
-
+        .hide{
+            display: none;
+        }
     </style>
 </head>
-<body class=" font-poppins overflow-y-auto sm:overflow-hidden h-screen m-0  "  >
+<body class=" font-poppins overflow-y-auto sm:overflow-hidden h-screen m-0"  >
 @auth
 {{--    <div id="app"></div>--}}
 
@@ -62,31 +64,31 @@
                                 <li>
                                     <span :class="{'text-green-700':  first_name.length > 0, 'text-red-700': first_name.length == 0}"
                                           class="font-medium text-sm ml-3"
-                                          x-text="first_name.length > 0 ? '' : 'First Name is required' ">
+                                          x-text="first_name.length > 0 ? 'First Name' : 'First Name is required' ">
                                     </span>
                                 </li>
                                 <li>
                                     <span :class="{'text-green-700':  last_name.length > 0, 'text-red-700': last_name.length == 0}"
                                           class="font-medium text-sm ml-3"
-                                          x-text="last_name.length > 0 ? '' : 'Last Name is required' ">
+                                          x-text="last_name.length > 0 ? 'Last Name' : 'Last Name is required' ">
                                     </span>
                                 </li><li>
                                     <span :class="{'text-green-700':  email.length > 0, 'text-red-700': email.length == 0}"
                                           class="font-medium text-sm ml-3"
-                                          x-text="email.length > 0 ? '' : 'Email is required' ">
+                                          x-text="email.length > 0 ? 'Email' : 'Email is required' ">
                                     </span>
                                 </li><li>
                                     <span :class="{'text-green-700':  ph_no.length > 0, 'text-red-700': ph_no.length == 0}"
                                           class="font-medium text-sm ml-3"
-                                          x-text="ph_no.length > 0 ? '' : 'Ph_no is required' ">
+                                          x-text="ph_no.length > 0 ? 'Phone Number' : 'Phone Number is required' ">
                                     </span>
                                 </li>
 
                             </ul>
 
                         </div>
-                        <button id="card-button" class="px-3 py-2 text-white bg-orange-500">
-                            <i class="fas fa-circle-notch fa-spin fa-2x text-blue-600 hidden" id="spinner"></i>   Pay
+                        <button id="card-button" class="px-3 py-2 text-white bg-orange-500 flex items-center justify-center">
+                            <i class="fas fa-circle-notch fa-spin fa-2x text-blue-600 hide" id="spinner"></i>   Pay
                         </button>
                     </form>
                 </div>
@@ -100,6 +102,15 @@
 @include('sweetalert::alert')
 <script src="https://js.stripe.com/v3/"></script>
 <script>
+    function ValidateEmail(mail)
+    {
+        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+        {
+            return true;
+        }
+
+        return false;
+    }
     function stripeTokenHandler(token){
         var form=document.getElementById('checkout-form');
         var hiddenInput=document.createElement('input');
@@ -146,7 +157,14 @@
                 icon:"error",
                 text:"Input fields are required.Please Try again"
             })
-        }  else {
+
+        }  else if(!ValidateEmail(email.value)) {
+            Swal.fire({
+                icon:'error',
+                text:'You must enter valid email'
+            })
+        }
+        else{
             stripe.confirmCardSetup(
                 "{{$intent->client_secret}}",
                 {
@@ -168,7 +186,7 @@
                     console.log(data);
                     console.log($("#checkout-form").serializeArray());
                        var spinner=document.getElementById('spinner');
-                       spinner.classList.remove('hidden');
+                       spinner.classList.remove('hide');
                     function sleep(ms) {
                         return new Promise(resolve => setTimeout(resolve, ms));
                     }
@@ -177,22 +195,22 @@
                         await sleep(3000);
                         location.reload();
                     }
-                    axios.post('{{route('checkout.process')}}',data).then((res)=>{
-                                spinner.classList.add('hidden');
+                    {{--axios.post('{{route('checkout.process')}}',data).then((res)=>{--}}
+                    {{--            spinner.classList.add('hide');--}}
 
-                               Swal.fire({
-                                   icon:'success',
-                                   text:'Success checkout.Please check your email for more information.',
-                                   toast:true,
-                                   position:'top-end',
-                                   timer:2500,
-                                   showConfirmButton:false,
-                                   showCloseButton:false,
-                               })
-                    }).then(()=>{
-                       delayedGreeting();
+                    {{--           Swal.fire({--}}
+                    {{--               icon:'success',--}}
+                    {{--               text:'Success checkout.Please check your email for more information.',--}}
+                    {{--               toast:true,--}}
+                    {{--               position:'top-end',--}}
+                    {{--               timer:2500,--}}
+                    {{--               showConfirmButton:false,--}}
+                    {{--               showCloseButton:false,--}}
+                    {{--           })--}}
+                    {{--}).then(()=>{--}}
+                    {{--   delayedGreeting();--}}
 
-                    })
+                    {{--})--}}
                     // $('#checkout-form').submit()
                 }
             });
