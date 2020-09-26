@@ -35,13 +35,19 @@ class AdminController extends Controller
 
         ];
         $revenues=Revenue::pluck('invoice','created_at');
+        $invoice_user=Revenue::pluck('invoice','user_id');
+
         $chart=new RevenueChart;
-        $chart->minimalist(true);
+        $user_chart=new RevenueChart;
+        $user_chart->labels($invoice_user->keys());
+        $user_chart->dataset('User Id','line',$invoice_user->values());
+
         $chart->labels($revenues->keys());
         $chart->dataset('Current Revenue','doughnut',$revenues->values())
             ->color($borderColors)
             ->backgroundcolor($fillColors);
-        return view('page.dashboard',compact('chart'));
+        $chart->minimalist(true);
+        return view('page.dashboard')->with(compact('chart','user_chart'));
     }
     public function get(){
 

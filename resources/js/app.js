@@ -7,8 +7,11 @@ import 'alpinejs';
 require('./bootstrap');
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-
+import Scrollbar from 'smooth-scrollbar';
+window.Scrollbar=Scrollbar;
 window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
+
 window.Vue = require('vue');
 import swal from 'sweetalert2';
 window.Swal = swal;

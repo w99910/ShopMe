@@ -54,8 +54,8 @@
                         </table>
                         <div class="flex px-3">
 {{--                            <button class="px-3 py-1 rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 " wire:click="addCart({{$product->id}},{{$product->price}})">--}}
-                            <button class="w-4/12 sm:py-1 sm:text-md rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 focus:outline-none text-white " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
-                            <a class="w-8/12 sm:py-1 rounded-lg bg-green-500 hover:bg-green-400 text-center focus:outline-none text-white"  href="{{route('checkout')}}">Proceed to Checkout</a>
+                            <button class="w-4/12 mt-2 sm:mt-0 py-1 sm:text-md rounded-lg bg-gray-600 mr-4 hover:bg-gray-500 focus:outline-none text-white " wire:click="$emit('addCart',{{$product}})">Add to Cart</button>
+                            <a class="w-8/12 py-1 mt-2 sm:mt-0 rounded-lg bg-green-500 hover:bg-green-400 text-center focus:outline-none text-white"  href="{{route('checkout')}}">Proceed to Checkout</a>
                         </div>
                     </div>
             </div>

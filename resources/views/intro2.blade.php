@@ -30,19 +30,15 @@
             transform: translateY(100%);
             display: inline-block;
         }
-        body::-webkit-scrollbar{
-            width:0;
-            background: transparent;
-        }
+           body::-webkit-scrollbar{
+               width:0;
+               background: transparent;
+           }
         @media only screen and (max-width: 640px) {
             div#menu{
                 display: none;
             }
 
-        }
-        .nav:hover{
-            @apply bg-redme;
-            @apply px-3;
         }
     </style>
 </head>
@@ -51,63 +47,57 @@
     <div class="landing bg-soft_pink min-h-screen items-center justify-between flex flex-col relative  text-redme" id="page1">
         <div class="relative w-full flex justify-between items-center pt-2 sm:pt-6 overflow-hidden px-4 sm:px-24">
             <span class="shopme font-dancing fluid_text_xl inline-block">ShopMe</span>
-            <div class="nav-wrapper inline-block" >
-                <nav>
-                    <ul class="flex" >
-                       @guest
-                        <li><a href="{{route('login')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Login</a></li>
-                        <li><a href="{{route('signup')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Sign Up</a> </li>
-                        @endguest
-                        @auth
-                               <li><a href="{{route('home')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Home</a></li>
-
-                           @endauth
-                    </ul>
-                </nav>
+                <div class="nav-wrapper inline-block" >
+                    <nav>
+                        <ul class="flex" >
+                            <li><a href="{{route('login')}}" class=" sm:mx-2 fluid_text_md">Login</a></li>
+                            <li><a href="{{route('signup')}}" class="mx-1 sm:mx-2 fluid_text_md">Sign Up</a> </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
+            <div class="img-wrapper w-full sm:w-6/12 h-auto inline-block self-center">
+                <img src="{{url('images/shopme_24thSep_with Transparent.png')}}" class="bg-cover object-center" alt="shopme">
+            </div>
+               <span class="w-full h-12"></span>
         </div>
-        <div class="img-wrapper w-full sm:w-6/12 h-auto inline-block self-center">
-            <img src="{{url('images/shopme_24thSep_with Transparent.png')}}" class="bg-cover object-center" alt="shopme">
-        </div>
-        <span class="w-full h-12"></span>
-    </div>
     <div class="h-screen w-full flex bg-redme transform -translate-y-24" id="page2">
         <div class="w-1/2 h-full flex items-center overflow-hidden justify-center">
             <img src="{{asset('images/search_engine.png')}}" alt="search_" class="w-10/12"  id="Layer_1">
         </div>
-        <div class="w-1/2 h-full relative overflow-hidden flex justify-center items-center">
-            <div class="toTopBox1 bg-soft_pink w-full h-full absolute bottom-0 left-0 transform translate-y-full"></div>
-            <div class="relative box1 flex fluid_text_md items-center justify-center w-2/3 bg-redme shadow-lg h-5/7 font-bold">
-                <div class="box1 absolute flex border border-redme items-center justify-center bg-soft_pink w-4/5 top-0 left-0 -mt-5 -ml-5 shadow-xl h-1/2 sm:h-5/7 px-2 text-redme">
-                    <p class="relative">
-                        <span>Search and Explore the items</span>
-                    </p>
-                </div>
-                <div class="box1 absolute border border-redme flex items-center justify-center bg-soft_pink w-4/5 bottom-0 right-0 -mb-10 -mr-10 shadow-xl h-1/2 px-2 text-redme">
-                    <p class="relative">
-                        <span>Add to your Cart</span>
-                    </p>
-                </div>
+            <div class="w-1/2 h-full relative overflow-hidden flex justify-center items-center">
+                    <div class="toTopBox1 bg-soft_pink w-full h-full absolute bottom-0 left-0 transform translate-y-full"></div>
+                        <div class="relative box1 flex fluid_text_md items-center justify-center w-2/3 bg-redme shadow-lg h-5/7 font-bold">
+                        <div class="box1 absolute flex border border-redme items-center justify-center bg-soft_pink w-4/5 top-0 left-0 -mt-5 -ml-5 shadow-xl h-1/2 sm:h-5/7 px-2 text-redme">
+                           <p class="relative">
+                               <span>Search and Explore the items</span>
+                           </p>
+                        </div>
+                        <div class="box1 absolute border border-redme flex items-center justify-center bg-soft_pink w-4/5 bottom-0 right-0 -mb-10 -mr-10 shadow-xl h-1/2 px-2 text-redme">
+                           <p class="relative">
+                               <span>Add to your Cart</span>
+                           </p>
+                        </div>
+                     </div>
             </div>
-        </div>
     </div>
-    <div class="h-screen w-full flex bg-soft_pink" id="page3">
+        <div class="h-screen w-full flex bg-soft_pink" id="page3">
 
-        <div class="w-1/2 h-full flex justify-center fluid_text_md relative items-center overflow-hidden bg-soft_pink text-bold">
-            <div class="w-3/5 h-1/2 flex flex-col justify-between text-white">
-                <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-6 md:py-12 flex text-center rounded-xl justify-center items-center">
-                    <span >Buy more items and get more discounts  </span>
-                </div>
-                <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-4 md:py-10 flex  text-center rounded-xl justify-center items-center">
-                    <span> Save your favourite items in your cart for later. </span>
-                </div>
+            <div class="w-1/2 h-full flex justify-center fluid_text_md relative items-center overflow-hidden bg-soft_pink text-bold">
+               <div class="w-3/5 h-1/2 flex flex-col justify-between text-white">
+                    <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-6 md:py-12 flex text-center rounded-xl justify-center items-center">
+                        <span >Buy more items and get more discounts  </span>
+                    </div>
+                    <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-4 md:py-10 flex  text-center rounded-xl justify-center items-center">
+                        <span> Save your favourite items in your cart for later. </span>
+                    </div>
+               </div>
             </div>
-        </div>
-        <div class="w-1/2 h-full relative flex justify-center items-center bg-redme">
-            <img src="{{asset('images/Online_shopping_PNG.png')}}" class="page3_image w-7/12" alt="discount"/>
-        </div>
+            <div class="w-1/2 h-full relative flex justify-center items-center bg-redme">
+                <img src="{{asset('images/Online_shopping_PNG.png')}}" class="page3_image w-7/12" alt="discount"/>
+            </div>
 
-    </div>
+        </div>
     <div class="h-screen w-full flex bg-soft_pink" id="page4">
         <div class="w-1/2 h-full relative flex flex-col  bg-redme">
             <div class="w-full h-1/2 bg-redme flex justify-center items-center">
@@ -115,33 +105,29 @@
             </div>
             <div class="w-full h-1/2 bg-soft_pink p-4">
                 <div class="page4_text w-full bg-redme h-full flex justify-center items-center text-soft_pink fluid_text_md uppercase">
-                    Pay only when you receive the item
+                      Online Payments
                 </div>
             </div>
         </div>
         <div class="w-1/2 h-full flex flex-col  fluid_text_md relative  overflow-hidden bg-soft_pink text-bold">
             <div class="w-full h-1/2 bg-soft_pink p-4">
-                <div class="page4_text w-full h-full bg-redme flex justify-center items-center text-soft_pink fluid_text_md uppercase">
-                       Online Payments
-                </div>
+              <div class="page4_text w-full h-full bg-redme flex justify-center items-center text-soft_pink fluid_text_md uppercase">
+                 Pay only when you receives the item
+              </div>
             </div>
             <div class="w-full h-1/2 bg-redme flex items-center justify-center">
                 <img src="{{asset('images/undraw_takeout_boxes_ap54.svg')}}" class="svg_card w-8/12" alt="delivery"/>
             </div>
+
         </div>
+
+
     </div>
-    <div class="w-full h-32 bg-soft_pink py-3 px-3">
-          <div class="w-full h-full bg-redme flex justify-center items-center text-white">
-{{--             <div class="flex">--}}
-                 <span>Contact me:   <i class="fas fa-envelope ml-2 text-xl"></i> zawlintun@utycc.edu.mm</span>
-{{--             </div>--}}
-          </div>
-    </div>
-</main>
+    </main>
 <div class="intro fixed bg-soft_pink top-0 left-0 w-full h-full flex justify-center items-center z-20">
-    {{--           <div class="w-1/2 h-1/2 absolute top-0 left-0 transform translate-x-1/2 translate-y-1/2">--}}
-    {{--               <img src="{{asset('images/welcome_without_text.png')}}" class="bg-cover object-center" alt="welcome_image">--}}
-    {{--           </div>--}}
+{{--           <div class="w-1/2 h-1/2 absolute top-0 left-0 transform translate-x-1/2 translate-y-1/2">--}}
+{{--               <img src="{{asset('images/welcome_without_text.png')}}" class="bg-cover object-center" alt="welcome_image">--}}
+{{--           </div>--}}
     <div class="intro-text text-2xl  flex flex-col  text-redme">
         <h1 class="hide">
             <span class="my_text">Hello from ShopMe</span>
@@ -157,7 +143,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.3/smooth-scrollbar.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.5.3/smooth-scrollbar.js"></script>
 <script>
 
     gsap.registerPlugin(ScrollTrigger);
@@ -168,11 +154,11 @@
     tl.from('.img-wrapper',{scale:0.5,autoAlpha:0,duration:1.2,transformOrigin:'center',ease:'back.out(2)'})
     tl.from('.shopme',{x:"-100%", opacity:0,duration:1},'-=0.3');
     tl.from('.nav-wrapper',{x:"100%",autoAlpha:0, duration:0.5},'-=0.3');
-    tl.to('#page2',{y:"0%",duration:1,scrollTrigger:{
-            trigger:"#page1",
-            start:'bottom center',
-            scrub:true,
-        }})
+     tl.to('#page2',{y:"0%",duration:1,scrollTrigger:{
+         trigger:"#page1",
+             start:'bottom center',
+             scrub:true,
+         }})
     let body_scroll=Scrollbar.init(document.querySelector('#body_scroll'));
     ScrollTrigger.scrollerProxy("main", {
         scrollTop(value) {
@@ -184,14 +170,14 @@
     });
     body_scroll.addListener(ScrollTrigger.update);
 
-    let trigger1=gsap.timeline({
-        scrollTrigger:{
-            trigger:'#page2',
-            start:'top center',
-            end:'10% center',
-            toggleActions:'restart play reverse none'
-        }
-    })
+     let trigger1=gsap.timeline({
+         scrollTrigger:{
+             trigger:'#page2',
+             start:'top center',
+             end:'10% center',
+             toggleActions:'restart play reverse none'
+         }
+     })
     let trigger2=gsap.timeline({
         scrollTrigger:{
             trigger:'#page2',
@@ -213,6 +199,7 @@
             trigger:'#page4',
             start:'-20% center',
             end:'20% bottom',
+            markers:true,
             toggleActions:'restart play reverse none',
         }
     })

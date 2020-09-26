@@ -27,8 +27,13 @@ class CartController extends Controller
                 'email'=>'required|email',
                 'ph_no'=>'required|regex:/(01)[0-9]{9}/',
             ]);
+            \Log::info('message',$request->all());
+            \Log::info('payment-method',[$request->payment_method]);
+//            \Log::info('payment-method',$request['payment-method']);
+
+
             if($validator) {
-                $payment = $request->input('payment-method');
+                $payment = $request->payment_method;
                 Stripe::setApiKey(env('STRIPE_SECRET'));
                 $charge=$user->total_charge * 100;
                 $name=$request->first_name.''.$request->last_name;
@@ -43,14 +48,14 @@ class CartController extends Controller
 
                     ]);
                     Revenue::create(['user_id'=>$user->id,'invoice'=>$charge]);
-                    Mail::to($request->email)->send(new InvoicePaid($user->carts,$charge));
+//                    Mail::to($request->email)->send(new InvoicePaid($user->carts,$charge));
                     $user->carts()->delete();
-                    toast('You have been successfully checkout.Please check your email.','success');
-                    return back();
+                    return response()->json('success');
                 } catch (Exception $e) {
-                    Alert::error('Sorry. Something went wrong.Please try again.');
-                    return redirect()->back();
+
                 }
             }
+
+            return response()->json('error');
         }
 }

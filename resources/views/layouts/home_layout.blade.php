@@ -48,7 +48,7 @@
 {{--            <img src="{{url('storage/product.gaming_room.png')}}" class="inline object-cover w-12 h-12 rounded-full object-center visible self-end mt-5" alt="image1" >--}}
 
             <div class="flex flex-col sm:ml-4 mt-3 ml-0">
-                <h2 class="font-handwrite text-3xl">E-Commerce</h2>
+                <h2 class="font-handwrite text-3xl">ShopMe</h2>
                 <nav class="flex flex-col mx-auto mt-4 ">
                     <ul class="text-md sm:text-lg">
                         <li class="flex items-center justify-start py-5 cursor-pointer" x-on:click="window.livewire.emit('home')"><img src="{{asset('images/browser.png')}}" alt="image" class="w-0 sm:w-2/12 h-auto  mr-3"/> Home</li>

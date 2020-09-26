@@ -36,7 +36,7 @@
         <div class="w-full p-0 sm:p-10 h-full inline-block sm:block">
             <div class="w-full py-5 rounded-none sm:rounded-lg shadow-xl px-5 h-auto sm:h-full flex flex-col sm:flex-row md:flex-row lg:flex-row bg-background ">
                 <div class="h-full w-full sm:w-1/3">
-                    <form action="{{route('checkout.process')}}" method="POST" id="checkout-form" class="h-full rounded-lg bg-lightwhite flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
+                    <form id="checkout-form" class="h-full rounded-lg bg-lightwhite flex flex-col justify-between" x-data="{first_name: '' , last_name:'' , email:'',ph_no:''}">
                         @csrf
 
                         <div class="flex flex-col">
@@ -54,7 +54,7 @@
                             </div>
 
                         </div>
-                        <input id="payment-method" type="hidden" name="payment-method" value="">
+                        <input id="payment_method" type="hidden" name="payment_method" value="">
                         <!-- Stripe Elements Placeholder -->
                         <div id="card-element" class="focus:outline-none border focus:border-blue-300 px-2 py-1 my-3 mx-3 rounded shadow" ></div>
                         <div>
@@ -83,9 +83,10 @@
                                 </li>
 
                             </ul>
+
                         </div>
                         <button id="card-button" class="px-3 py-2 text-white bg-orange-500">
-                            Pay
+                            <i class="fas fa-circle-notch fa-spin fa-2x text-blue-600 hidden" id="spinner"></i>   Pay
                         </button>
                     </form>
                 </div>
@@ -162,8 +163,37 @@
                     // console.log(result.setupIntent.id);
                     paymentMethod = result.setupIntent.payment_method;
                     stripeTokenHandler(result.setupIntent.id);
-                    $('#payment-method').val(paymentMethod)
-                    $('#checkout-form').submit()
+                    $('#payment_method').val(paymentMethod)
+                    const data=$("#checkout-form").serialize();
+                    console.log(data);
+                    console.log($("#checkout-form").serializeArray());
+                       var spinner=document.getElementById('spinner');
+                       spinner.classList.remove('hidden');
+                    function sleep(ms) {
+                        return new Promise(resolve => setTimeout(resolve, ms));
+                    }
+
+                    async function delayedGreeting() {
+                        await sleep(3000);
+                        location.reload();
+                    }
+                    axios.post('{{route('checkout.process')}}',data).then((res)=>{
+                                spinner.classList.add('hidden');
+
+                               Swal.fire({
+                                   icon:'success',
+                                   text:'Success checkout.Please check your email for more information.',
+                                   toast:true,
+                                   position:'top-end',
+                                   timer:2500,
+                                   showConfirmButton:false,
+                                   showCloseButton:false,
+                               })
+                    }).then(()=>{
+                       delayedGreeting();
+
+                    })
+                    // $('#checkout-form').submit()
                 }
             });
         }
