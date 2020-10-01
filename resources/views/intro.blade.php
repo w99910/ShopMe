@@ -14,7 +14,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
     <style>
         *{
@@ -115,18 +115,18 @@
             </div>
             <div class="w-full h-1/2 bg-soft_pink p-4">
                 <div class="page4_text w-full bg-redme text-center h-full flex justify-center items-center text-soft_pink fluid_text_md uppercase">
-                    <span> Pay only when you receive the item </span>
+                    <span>Online Payments</span>
                 </div>
             </div>
         </div>
         <div class="w-full sm:w-1/2 h-full flex flex-col  fluid_text_md relative  overflow-hidden bg-soft_pink text-bold">
             <div class="w-full h-1/2 bg-soft_pink p-4">
                 <div class="page4_text w-full h-full bg-redme flex text-center justify-center items-center text-soft_pink fluid_text_md uppercase">
-                    <span> Online Payments </span>
+                    <span>Customer Support with Real-time Chat</span>
                 </div>
             </div>
             <div class="w-full h-1/2 bg-redme flex items-center justify-center">
-                <img src="{{asset('images/undraw_takeout_boxes_ap54.svg')}}" class="svg_card w-8/12" alt="delivery"/>
+                <img src="{{asset('images/undraw_begin_chat_c6pj.svg')}}" class="svg_card w-7/12 sm:w-7/12" alt="delivery"/>
             </div>
         </div>
     </div>
