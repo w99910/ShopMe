@@ -17,7 +17,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/chartisan/php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/consoletvs/charts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dealerdirect/phpcodesniffer-composer-installer" />

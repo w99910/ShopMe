@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>ShopMe</title>
     <!-- Scripts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
@@ -14,7 +14,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
     <style>
         *{
@@ -54,14 +54,14 @@
             <div class="nav-wrapper inline-block" >
                 <nav>
                     <ul class="flex" >
-                       @guest
-                        <li><a href="{{route('login')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Login</a></li>
-                        <li><a href="{{route('signup')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Sign Up</a> </li>
+                        @guest
+                            <li><a href="{{route('login')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Login</a></li>
+                            <li><a href="{{route('signup')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Sign Up</a> </li>
                         @endguest
                         @auth
-                               <li><a href="{{route('home')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Home</a></li>
+                            <li><a href="{{route('home')}}" class=" fluid_text_md px-1 sm:px-2 mx-1 border-b-4 border-transparent hover:border-redme">Home</a></li>
 
-                           @endauth
+                        @endauth
                     </ul>
                 </nav>
             </div>
@@ -71,11 +71,11 @@
         </div>
         <span class="w-full h-12"></span>
     </div>
-    <div class="h-screen w-full flex bg-redme transform -translate-y-24" id="page2">
-        <div class="w-1/2 h-full flex items-center overflow-hidden justify-center">
+    <div class="h-screen w-full flex flex-col sm:flex-row bg-redme transform -translate-y-24" id="page2">
+        <div class=" w-full sm:w-1/2 h-full flex items-center overflow-hidden justify-center">
             <img src="{{asset('images/search_engine.png')}}" alt="search_" class="w-10/12"  id="Layer_1">
         </div>
-        <div class="w-1/2 h-full relative overflow-hidden flex justify-center items-center">
+        <div class="w-full sm:w-1/2 h-full relative overflow-hidden flex justify-center items-center">
             <div class="toTopBox1 bg-soft_pink w-full h-full absolute bottom-0 left-0 transform translate-y-full"></div>
             <div class="relative box1 flex fluid_text_md items-center justify-center w-2/3 bg-redme shadow-lg h-5/7 font-bold">
                 <div class="box1 absolute flex border border-redme items-center justify-center bg-soft_pink w-4/5 top-0 left-0 -mt-5 -ml-5 shadow-xl h-1/2 sm:h-5/7 px-2 text-redme">
@@ -91,38 +91,38 @@
             </div>
         </div>
     </div>
-    <div class="h-screen w-full flex bg-soft_pink" id="page3">
+    <div class="h-screen w-full flex flex-col sm:flex-row bg-soft_pink" id="page3">
 
-        <div class="w-1/2 h-full flex justify-center fluid_text_md relative items-center overflow-hidden bg-soft_pink text-bold">
-            <div class="w-3/5 h-1/2 flex flex-col justify-between text-white">
-                <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-6 md:py-12 flex text-center rounded-xl justify-center items-center">
+        <div class="w-full sm:w-1/2 h-full flex justify-center fluid_text_md relative items-center overflow-hidden bg-soft_pink text-bold">
+            <div class="w-3/5 h-auto sm:h-1/2 flex flex-col justify-between text-white">
+                <div class="page3_text bg-redme px-6 mb-2 sm:my-0 py-2 sm:px-12 sm:py-6 md:py-12 flex text-center rounded-xl justify-center items-center">
                     <span >Buy more items and get more discounts  </span>
                 </div>
-                <div class="page3_text bg-redme px-6 py-2 sm:px-12 sm:py-4 md:py-10 flex  text-center rounded-xl justify-center items-center">
+                <div class="page3_text bg-redme px-6 py-2 mb-2 sm:my-0 sm:px-12 sm:py-4 md:py-10 flex  text-center rounded-xl justify-center items-center">
                     <span> Save your favourite items in your cart for later. </span>
                 </div>
             </div>
         </div>
-        <div class="w-1/2 h-full relative flex justify-center items-center bg-redme">
+        <div class="w-full sm:w-1/2 h-full relative flex justify-center items-center bg-redme">
             <img src="{{asset('images/Online_shopping_PNG.png')}}" class="page3_image w-7/12" alt="discount"/>
         </div>
 
     </div>
-    <div class="h-screen w-full flex bg-soft_pink" id="page4">
-        <div class="w-1/2 h-full relative flex flex-col  bg-redme">
+    <div class="h-screen w-full flex flex-col sm:flex-row bg-soft_pink" id="page4">
+        <div class="w-full sm:w-1/2 h-full relative flex flex-col-reverse sm:flex-col  bg-redme">
             <div class="w-full h-1/2 bg-redme flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="svg_card w-6/12" viewBox="0 0 457.018 350.812"><defs><style>.a,.b{fill:#fff;}.b{stroke:#707070;}.c{fill:#c8ccd5;}.d{fill:#ffae33;}.e{stroke:none;}.f{fill:none;}</style></defs><g transform="translate(-1306.491 -113.094)"><rect class="a" width="339" height="229" transform="translate(1456.271 113.094) rotate(25)"/><g class="b" transform="translate(1403.271 113.094) rotate(25)"><rect class="e" width="339" height="229"/><rect class="f" x="0.5" y="0.5" width="338" height="228"/></g><rect class="c" width="139" height="29" rx="14.5" transform="translate(1410.627 144.96) rotate(25)"/><rect class="c" width="139" height="166" rx="23" transform="translate(1549.627 207.96) rotate(25)"/><rect class="c" width="139" height="29" rx="14.5" transform="translate(1387.627 184.96) rotate(25)"/><rect class="c" width="139" height="29" rx="14.5" transform="translate(1365.627 227.96) rotate(25)"/><rect class="d" width="139" height="29" rx="14.5" transform="translate(1341.627 269.96) rotate(25)"/></g></svg>
             </div>
             <div class="w-full h-1/2 bg-soft_pink p-4">
-                <div class="page4_text w-full bg-redme h-full flex justify-center items-center text-soft_pink fluid_text_md uppercase">
-                    Pay only when you receive the item
+                <div class="page4_text w-full bg-redme text-center h-full flex justify-center items-center text-soft_pink fluid_text_md uppercase">
+                    <span> Pay only when you receive the item </span>
                 </div>
             </div>
         </div>
-        <div class="w-1/2 h-full flex flex-col  fluid_text_md relative  overflow-hidden bg-soft_pink text-bold">
+        <div class="w-full sm:w-1/2 h-full flex flex-col  fluid_text_md relative  overflow-hidden bg-soft_pink text-bold">
             <div class="w-full h-1/2 bg-soft_pink p-4">
-                <div class="page4_text w-full h-full bg-redme flex justify-center items-center text-soft_pink fluid_text_md uppercase">
-                       Online Payments
+                <div class="page4_text w-full h-full bg-redme flex text-center justify-center items-center text-soft_pink fluid_text_md uppercase">
+                    <span> Online Payments </span>
                 </div>
             </div>
             <div class="w-full h-1/2 bg-redme flex items-center justify-center">
@@ -131,18 +131,18 @@
         </div>
     </div>
     <div class="w-full h-32 bg-soft_pink py-3 px-3">
-          <div class="w-full h-full bg-redme flex justify-center items-center text-white">
-{{--             <div class="flex">--}}
-                 <span>Contact me:   <i class="fas fa-envelope ml-2 text-xl"></i> zawlintun@utycc.edu.mm</span>
-{{--             </div>--}}
-          </div>
+        <div class="w-full h-full bg-redme flex justify-center items-center text-white text-center">
+            {{--             <div class="flex">--}}
+            <span>Contact me:   <i class="fas fa-envelope ml-2 text-xl"></i> zawlintun@utycc.edu.mm</span>
+            {{--             </div>--}}
+        </div>
     </div>
 </main>
 <div class="intro fixed bg-soft_pink top-0 left-0 w-full h-full flex justify-center items-center z-20">
     {{--           <div class="w-1/2 h-1/2 absolute top-0 left-0 transform translate-x-1/2 translate-y-1/2">--}}
     {{--               <img src="{{asset('images/welcome_without_text.png')}}" class="bg-cover object-center" alt="welcome_image">--}}
     {{--           </div>--}}
-    <div class="intro-text text-2xl  flex flex-col  text-redme">
+    <div class="intro-text text-2xl  flex flex-col text-center justify-center items-center text-redme">
         <h1 class="hide">
             <span class="my_text">Hello from ShopMe</span>
         </h1>

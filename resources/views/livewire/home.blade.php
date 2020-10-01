@@ -31,7 +31,7 @@
                     @if (!empty($carts))
                         @foreach($carts as $cart)
                             <div class="block">
-                                <div class="flex items-center justify-between">  <img src="{{url('storage/'.$cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
+                                <div class="flex items-center justify-between">  <img src="{{url($cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
                                     {{$cart->product->name}}
                                     <button class="px-2 py-1 bg-red-500 rounded-lg" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
                                 </div>
@@ -52,7 +52,7 @@
         @foreach($products as $product)
             <div class="bg-transparent h-64 w-1/3 sm:w-1/3 md:w-1/4 lg:w-1/5 flex flex-col items-center mx-auto px-2  mt-4 mb-8 rounded-t-xl relative" >
                 <div class="w-full rounded-t-lg flex flex-col items-end bg-white">
-                    <img src="{{url('storage/'.$product->image_path)}}"  alt="{{$product->name}}" class="inline object-cover object-center"/>
+                    <img src="{{url($product->image_path)}}"  alt="{{$product->name}}" class="inline object-cover object-center"/>
                 </div>
                 <div class="bg-semi w-full justify-start bg-white p-0 sm:p-2 rounded-lg text-white">
                     <div class="flex flex-col items-start sm:items-center justify-between sm:flex-row pl-2 sm:pl-0">

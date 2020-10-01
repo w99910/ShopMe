@@ -19,7 +19,7 @@
                     @if (!empty($carts))
                         @foreach($carts as $cart)
                             <div class="block">
-                                <div class="flex items-center justify-between">  <img src="{{url('/storage/'.$cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
+                                <div class="flex items-center justify-between">  <img src="{{url($cart->product->image_path)}}" class="object-center object-cover w-12 h-12" alt="{{$cart->product->name}}"/>
                                     {{$cart->product->name}}
                                     <button class="px-2 py-1 bg-red-500 rounded-lg" wire:click="deleteCart({{$cart->id}})"><i class="fas fa-times"></i></button>
                                 </div>
@@ -42,7 +42,7 @@
         <div class="w-full sm:w-8/12 flex mr-5">
             <div class="w-full border-none rounded-lg shadow-lg flex flex-col sm:flex-row rounded-lg bg-white">
                 <div class="w-full justify-center items-center flex bg-semi">
-                    <img src="{{url('/storage/'.$product->image_path)}}" class="inline-flex object-cover object-center "/>
+                    <img src="{{url($product->image_path)}}" class="inline-flex object-cover object-center "/>
                 </div>
                 <div class="w-full sm:w-3/6 py-2 px-3 flex flex-col justify-between">
                     <table class="table-auto">
@@ -70,7 +70,7 @@
 
                         @foreach($carts as $cart)
                             <tr class="flex flex-wrap items-center justify-between">
-                                <td class="w-2/12"> <img src="{{url('/storage/'.$cart->product->image_path)}}" class="object-center object-cover"/> </td>
+                                <td class="w-2/12"> <img src="{{url($cart->product->image_path)}}" class="object-center object-cover"/> </td>
                                 <td class="truncate">{{$cart->product->name}}</td>
 
                                 <td><button class="p-2 bg-gray-300 focus:outline-none" wire:click="increment({{$cart->id}})">+</button></td>
@@ -92,7 +92,7 @@
                 <span class="bg-lightwhite px-2 rounded-lg text-gray-600">You may also like this</span>
                 @foreach($suggestions as $suggestion)
                     <div class="flex flex-col w-full bg-semi mx-2 rounded-lg border-none" style="min-width: fit-content;">
-                        <img src="{{url('/storage/'.$suggestion->image_path)}}" class="object-center object-cover w-56 cursor-pointer" wire:click="purchase_page({{$suggestion->id}})"/>
+                        <img src="{{url($suggestion->image_path)}}" class="object-center object-cover w-56 cursor-pointer" wire:click="purchase_page({{$suggestion->id}})"/>
                     </div>
                 @endforeach
             </div>

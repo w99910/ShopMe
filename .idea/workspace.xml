@@ -21,42 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="212ae468-a981-475e-8040-3d1939ad4d46" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/e-commerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-commerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProductPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProductPage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Purchase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/fontawesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/fontawesome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin_layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/home_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/home_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/intro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/intro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/intro2.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/checkout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/password-oauth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/password-oauth.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/purchase.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/purchase.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/page/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +228,6 @@
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/laravolt/avatar" />
       <path value="$PROJECT_DIR$/vendor/consoletvs/charts" />
-      <path value="$PROJECT_DIR$/vendor/chartisan/php" />
       <path value="$PROJECT_DIR$/vendor/balping/json-raw-encoder" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
@@ -390,7 +366,7 @@
       <workItem from="1601471396334" duration="2636000" />
       <workItem from="1601476387673" duration="4678000" />
       <workItem from="1601527907398" duration="17273000" />
-      <workItem from="1601552232660" duration="5709000" />
+      <workItem from="1601552232660" duration="6761000" />
     </task>
     <servers />
   </component>

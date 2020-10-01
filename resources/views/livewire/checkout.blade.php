@@ -15,7 +15,7 @@
             @foreach($carts as $cart)
 
                 <tr>
-                    <td class="border px-4 py-2 w-3/12"><img src="{{url('/storage/'.$cart->product->image_path)}}" class="object-center object-cover"/></td>
+                    <td class="border px-4 py-2 w-3/12"><img src="{{url($cart->product->image_path)}}" class="object-center object-cover"/></td>
                     <td class="border px-4 py-2">{{$cart->product->name}}</td>
                     <td class="border px-4 py-2"><button class="p-2  mx-2 bg-white rounded-lg focus:outline-none" wire:click="increment({{$cart->id}})">+</button>{{$cart->quantity}}
                         <button class="p-2 mx-2 bg-white rounded-lg focus:outline-none" wire:click="decrement({{$cart->id}})">-</button></td>

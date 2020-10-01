@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductPage extends Component
 {
-
-
-
     use WithPagination;
     public $count=0;
     public $confirmid;
