@@ -26,6 +26,8 @@
         "@fortawesome/fontawesome-free": "^5.14.0",
         "alpinejs": "^2.7.0",
         "gsap": "^3.5.1",
+        "laravel-echo": "^1.8.1",
+        "pusher-js": "^7.0.0",
         "smooth-scrollbar": "^8.5.3",
         "sweetalert2": "^9.17.2",
         "tailwindcss": "^1.8.10"

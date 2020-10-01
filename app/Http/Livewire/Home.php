@@ -15,13 +15,41 @@ class Home extends Component
     public $select;
     public $products;
     public $search;
+    public $text;
+    public $messages=[];
 
+    public function getListeners()
+    {
+        return [
+            "echo-private:message,.message-event.".auth()->id() => 'updateMessage',
+            'new'=>'newest',
+            'discount'=>'discount','home'=>'home'
+        ];
+    }
+    public function updateMessage($message){
+
+        $this->messages=\App\Message::where('from',auth()->id())->orWhere('to',auth()->id())->get();
+    }
+    public function sendMessage(){
+        $id=auth()->id();
+        if($this->text==''){
+            return null;
+        }
+        else {
+            $send_message = \App\Message::create(['from' => $id, 'to' => 7, 'message' => $this->text]);
+            broadcast(new \App\Events\Message($send_message));
+            $this->messages = \App\Message::where('from', auth()->id())->orWhere('to', auth()->id())->get();
+
+            $this->text = '';
+        }
+    }
     public function updatedSearch(){
        $products=Product::where('name', 'like', '%'.$this->search.'%')->get();
        $this->products=$products;
        $this->emit('refresh');
     }
-    protected $listeners=['new'=>'newest','discount'=>'discount','home'=>'home'];
+//    protected $listeners=['new'=>'newest','discount'=>'discount','home'=>'home'];
+
     public function home(){
         $this->products=Product::all();
         $this->emit('refresh');
@@ -59,6 +87,9 @@ class Home extends Component
         $user = auth()->user();
         $carts=$user->carts;
         $this->carts=$carts;
+        $this->messages=\App\Message::where('from',auth()->id())->orWhere('to',auth()->id())->get();
+
+
     }
     public function discount(){
         $this->products=Product::has('discounts')->get();

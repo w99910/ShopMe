@@ -11777,6 +11777,14 @@ video {
   height: 35%;
 }
 
+.h-8\/10{
+  height: 85%;
+}
+
+.h-2\/10{
+  height: 15%;
+}
+
 .text-xs{
   font-size: 0.75rem;
 }
@@ -24913,6 +24921,16 @@ video {
           animation: bounce 1s infinite;
 }
 
+.message_scrollbar::-webkit-scrollbar {
+  width: 10px;
+  scroll-behavior: smooth;
+  background: transparent;
+}
+
+.message_scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
 .custom_scrollbar::-webkit-scrollbar {
   width: 10px;
   height: 5px;
@@ -36124,6 +36142,14 @@ video {
 
   .sm\:h-1\/3{
     height: 35%;
+  }
+
+  .sm\:h-8\/10{
+    height: 85%;
+  }
+
+  .sm\:h-2\/10{
+    height: 15%;
   }
 
   .sm\:text-xs{
@@ -60385,6 +60411,14 @@ video {
     height: 35%;
   }
 
+  .md\:h-8\/10{
+    height: 85%;
+  }
+
+  .md\:h-2\/10{
+    height: 15%;
+  }
+
   .md\:text-xs{
     font-size: 0.75rem;
   }
@@ -84644,6 +84678,14 @@ video {
     height: 35%;
   }
 
+  .lg\:h-8\/10{
+    height: 85%;
+  }
+
+  .lg\:h-2\/10{
+    height: 15%;
+  }
+
   .lg\:text-xs{
     font-size: 0.75rem;
   }
@@ -108901,6 +108943,14 @@ video {
 
   .xl\:h-1\/3{
     height: 35%;
+  }
+
+  .xl\:h-8\/10{
+    height: 85%;
+  }
+
+  .xl\:h-2\/10{
+    height: 15%;
   }
 
   .xl\:text-xs{

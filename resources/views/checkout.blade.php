@@ -183,8 +183,6 @@
                     stripeTokenHandler(result.setupIntent.id);
                     $('#payment_method').val(paymentMethod)
                     const data=$("#checkout-form").serialize();
-                    console.log(data);
-                    console.log($("#checkout-form").serializeArray());
                        var spinner=document.getElementById('spinner');
                        spinner.classList.remove('hide');
                     function sleep(ms) {
@@ -192,25 +190,25 @@
                     }
 
                     async function delayedGreeting() {
-                        await sleep(3000);
+                        await sleep(3500);
                         location.reload();
                     }
-                    {{--axios.post('{{route('checkout.process')}}',data).then((res)=>{--}}
-                    {{--            spinner.classList.add('hide');--}}
+                    axios.post('{{route('checkout.process')}}',data).then((res)=>{
+                                spinner.classList.add('hide');
 
-                    {{--           Swal.fire({--}}
-                    {{--               icon:'success',--}}
-                    {{--               text:'Success checkout.Please check your email for more information.',--}}
-                    {{--               toast:true,--}}
-                    {{--               position:'top-end',--}}
-                    {{--               timer:2500,--}}
-                    {{--               showConfirmButton:false,--}}
-                    {{--               showCloseButton:false,--}}
-                    {{--           })--}}
-                    {{--}).then(()=>{--}}
-                    {{--   delayedGreeting();--}}
+                               Swal.fire({
+                                   icon:'success',
+                                   text:'Success checkout.Please check your email for more information.',
+                                   toast:true,
+                                   position:'top-end',
+                                   timer:3000,
+                                   showConfirmButton:false,
+                                   showCloseButton:false,
+                               })
+                    }).then(()=>{
+                       delayedGreeting();
 
-                    {{--})--}}
+                    })
                     // $('#checkout-form').submit()
                 }
             });

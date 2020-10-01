@@ -12,7 +12,7 @@ window.Scrollbar=Scrollbar;
 window.gsap = gsap;
 window.ScrollTrigger = ScrollTrigger;
 
-window.Vue = require('vue');
+// window.Vue = require('vue');
 import swal from 'sweetalert2';
 window.Swal = swal;
 
@@ -27,7 +27,9 @@ window.Swal = swal;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('Message', require('./components/Message.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

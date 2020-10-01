@@ -40,13 +40,32 @@ class ProductPage extends Component
         $product=Product::create([
            'name'=>$data['name'],
             'price'=> (float)$data['price'],
-            'image_path' => 'product.'.$data['name'].'.'.$data['extension'],
             'available' => true,
             'quantity'=>$quantity,
         ]);
+//             'image_path' => 'product.'.$data['name'].'.'.$data['extension'],
         $cate_id=$data['select'];
         $product->categories()->attach($cate_id);
-        Storage::disk('public')->put('product.'.$product->name.'.'.$data['extension'],$decoded);
+        Storage::disk('google')->put('product.'.$product->name.'.'.$data['extension'],$decoded);
+        $dir = '/';
+        $recursive = false; // Get subdirectories also?
+        $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+        $file = $contents
+            ->where('type', '=', 'file')
+            ->where('filename', '=', pathinfo('product.'.$product->name.'.'.$data['extension'], PATHINFO_FILENAME))
+            ->where('extension', '=', pathinfo('product.'.$product->name.'.'.$data['extension'], PATHINFO_EXTENSION))
+            ->first(); // there can be duplicate file names!
+        //return $contents->where('type', '=', 'dir'); // directories
+        $service = Storage::cloud()->getAdapter()->getService();
+        $permission = new \Google_Service_Drive_Permission();
+        $permission->setRole('reader');
+        $permission->setType('anyone');
+        $permission->setAllowFileDiscovery(false);
+        $permissions = $service->permissions->create($file['basename'], $permission);
+
+        $url=Storage::cloud()->url($file['path']);
+        $product->image_path=$url;
+        $product->save();
         $this->emit('alerting','Successfully Created');
         session()->flash('toast', 'Proudct '.$product->name.  ' successfully created.');
 

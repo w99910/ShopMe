@@ -15,8 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+     return view('intro');
+});
+Route::get('/testDrive',function(){
 
-        return view('intro');
+    $dir = '/';
+    $recursive = false; // Get subdirectories also?
+    $contents = collect(Storage::cloud()->listContents($dir, $recursive));
+    $file = $contents
+        ->where('type', '=', 'file')
+        ->where('filename', '=', pathinfo('test.txt', PATHINFO_FILENAME))
+        ->where('extension', '=', pathinfo('test.txt', PATHINFO_EXTENSION))
+        ->first(); // there can be duplicate file names!
+    //return $contents->where('type', '=', 'dir'); // directories
+    $service = Storage::cloud()->getAdapter()->getService();
+    $permission = new \Google_Service_Drive_Permission();
+    $permission->setRole('reader');
+    $permission->setType('anyone');
+    $permission->setAllowFileDiscovery(false);
+    $permissions = $service->permissions->create($file['basename'], $permission);
+
+    return Storage::cloud()->url($file['path']);
 
 });
 

@@ -59,4 +59,7 @@ class User extends Authenticatable
         }
         return $this->checkout;
     }
+    public function messages(){
+        return $this->hasMany('App\Message','from','id');
+    }
 }
